@@ -1,5 +1,6 @@
 {
     "description": "lorem",
+    "name": "theblockchainapi",
     "keywords": [
         "openapitools",
         "openapi-generator",
