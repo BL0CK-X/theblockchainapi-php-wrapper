@@ -4,12 +4,12 @@ All URIs are relative to https://api.theblockchainapi.com/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**solanaCreateTestCandyMachine()**](SolanaCandyMachineApi.md#solanaCreateTestCandyMachine) | **POST** /solana/nft/candy_machine | Create a test candy machine
-[**solanaGetAllNFTsFromCandyMachine()**](SolanaCandyMachineApi.md#solanaGetAllNFTsFromCandyMachine) | **GET** /solana/nft/candy_machine/{network}/{candy_machine_id}/nfts | Get the list of all NFTs (minted and unminted) from a Solana Candy Machine
-[**solanaGetCandyMachineConfigurationDetails()**](SolanaCandyMachineApi.md#solanaGetCandyMachineConfigurationDetails) | **POST** /solana/nft/candy_machine/config/info | Get the details of a Solana Candy Machine configuration
-[**solanaGetCandyMachineDetails()**](SolanaCandyMachineApi.md#solanaGetCandyMachineDetails) | **POST** /solana/nft/candy_machine/info | Get a Metaplex candy machine&#39;s details
-[**solanaGetNFTsMintedFromCandyMachine()**](SolanaCandyMachineApi.md#solanaGetNFTsMintedFromCandyMachine) | **POST** /solana/nft/candy_machine/nfts | Get the list of NFTs minted from a Solana Candy Machine
-[**solanaMintFromCandyMachine()**](SolanaCandyMachineApi.md#solanaMintFromCandyMachine) | **POST** /solana/nft/candy_machine/mint | Mint an NFT from a Metaplex candy machine
+[**solanaCreateTestCandyMachine()**](SolanaCandyMachineApi.md#solanaCreateTestCandyMachine) | **POST** /solana/nft/candy_machine | Create a test CM
+[**solanaGetAllNFTsFromCandyMachine()**](SolanaCandyMachineApi.md#solanaGetAllNFTsFromCandyMachine) | **GET** /solana/nft/candy_machine/{network}/{candy_machine_id}/nfts | Get CM&#39;s NFTs
+[**solanaGetCandyMachineMetadata()**](SolanaCandyMachineApi.md#solanaGetCandyMachineMetadata) | **POST** /solana/nft/candy_machine/metadata | Get a CM&#39;s metadata
+[**solanaListAllCandyMachines()**](SolanaCandyMachineApi.md#solanaListAllCandyMachines) | **GET** /solana/nft/candy_machine/list | List all CMs
+[**solanaMintFromCandyMachine()**](SolanaCandyMachineApi.md#solanaMintFromCandyMachine) | **POST** /solana/nft/candy_machine/mint | Mint from a CM
+[**solanaSearchCandyMachines()**](SolanaCandyMachineApi.md#solanaSearchCandyMachines) | **POST** /solana/nft/candy_machine/search | Search CMs
 
 
 ## `solanaCreateTestCandyMachine()`
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 solanaCreateTestCandyMachine($create_test_candy_machine_request): \OpenAPI\Client\Model\CreateTestCandyMachineResponse
 ```
 
-Create a test candy machine
+Create a test CM
 
 <a href=\"https://github.com/BL0CK-X/the-blockchain-api/tree/main/examples/solana-candy-machine/create-test-candy-machine\" target=\"_blank\">See examples (Python, JavaScript)</a>.   Use this endpoint to create a test candy machine so that you can test your minting bot.  `Cost: 1 Credit` (<a href=\"#section/Pricing\">See Pricing</a>)
 
@@ -85,9 +85,9 @@ Name | Type | Description  | Notes
 solanaGetAllNFTsFromCandyMachine($network, $candy_machine_id): \OpenAPI\Client\Model\GetAllNFTsResponse
 ```
 
-Get the list of all NFTs (minted and unminted) from a Solana Candy Machine
+Get CM's NFTs
 
-<a href=\"https://github.com/BL0CK-X/the-blockchain-api/tree/main/examples/solana-candy-machine/get-candy-machine-all-nfts\" target=\"_blank\"> See examples (Python, JavaScript)</a>.  Use this endpoint to get the list of all NFTs (minted and unminted) from a Solana Candy Machine.  `Cost: 3 Credits` (<a href=\"#section/Pricing\">See Pricing</a>)
+<a href=\"https://github.com/BL0CK-X/the-blockchain-api/tree/main/examples/solana-candy-machine/get-candy-machine-all-nfts\" target=\"_blank\"> See examples (Python, JavaScript)</a>.  Use this endpoint to get the list of all NFTs (minted and unminted) from a Solana Candy Machine.  This works for `v1` and `v2` candy machines.   *However*, for `v2` only the value for `all_nfts` is provided. To determine which are minted and unminted follow this example.  You do not need to specify `v1` or `v2` for this endpoint as it will automatically determine it from the candy machine ID.  See example for how to get the list of NFT hashes <a href=\"https://github.com/BL0CK-X/the-blockchain-api/tree/main/examples/solana-candy-machine/get-candy-machine-hash-table\" target=\"_blank\">here</a>.    `Cost: 2 Credits` (<a href=\"#section/Pricing\">See Pricing</a>)
 
 ### Example
 
@@ -148,15 +148,15 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `solanaGetCandyMachineConfigurationDetails()`
+## `solanaGetCandyMachineMetadata()`
 
 ```php
-solanaGetCandyMachineConfigurationDetails($get_config_info_request): \OpenAPI\Client\Model\GetConfigInfoResponse
+solanaGetCandyMachineMetadata($get_candy_metadata_request): \OpenAPI\Client\Model\GetCandyMetadataResponse
 ```
 
-Get the details of a Solana Candy Machine configuration
+Get a CM's metadata
 
-<a href=\"https://github.com/BL0CK-X/the-blockchain-api/tree/main/examples/solana-candy-machine/get-candy-machine-config-info\" target=\"_blank\">See examples (Python, JavaScript)</a>.  Use this endpoint to get the details of a Solana Candy Machine configuration.  `Cost: 1 Credit` (<a href=\"#section/Pricing\">See Pricing</a>)
+<a href=\"\" target=\"_blank\">See examples (Python, JavaScript) [Coming Soon]</a>.  Use this endpoint to get metadata about a Metaplex candy machine. This includes the goLiveDate, itemsAvailable, and itemsRedeemed. To see what is included, expand the green successful response below.  NOTE: Supply exactly one of `candy_machine_id`, `config_address`, or `uuid`. If you provide more than one, you will receive a `400` error.   `Cost: 2 Credits` (<a href=\"#section/Pricing\">See Pricing</a>)
 
 ### Example
 
@@ -182,13 +182,13 @@ $apiInstance = new OpenAPI\Client\Api\SolanaCandyMachineApi(
     new GuzzleHttp\Client(),
     $config
 );
-$get_config_info_request = new \OpenAPI\Client\Model\GetConfigInfoRequest(); // \OpenAPI\Client\Model\GetConfigInfoRequest
+$get_candy_metadata_request = new \OpenAPI\Client\Model\GetCandyMetadataRequest(); // \OpenAPI\Client\Model\GetCandyMetadataRequest
 
 try {
-    $result = $apiInstance->solanaGetCandyMachineConfigurationDetails($get_config_info_request);
+    $result = $apiInstance->solanaGetCandyMachineMetadata($get_candy_metadata_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SolanaCandyMachineApi->solanaGetCandyMachineConfigurationDetails: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SolanaCandyMachineApi->solanaGetCandyMachineMetadata: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -196,11 +196,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **get_config_info_request** | [**\OpenAPI\Client\Model\GetConfigInfoRequest**](../Model/GetConfigInfoRequest.md)|  | [optional]
+ **get_candy_metadata_request** | [**\OpenAPI\Client\Model\GetCandyMetadataRequest**](../Model/GetCandyMetadataRequest.md)|  | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetConfigInfoResponse**](../Model/GetConfigInfoResponse.md)
+[**\OpenAPI\Client\Model\GetCandyMetadataResponse**](../Model/GetCandyMetadataResponse.md)
 
 ### Authorization
 
@@ -215,15 +215,15 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `solanaGetCandyMachineDetails()`
+## `solanaListAllCandyMachines()`
 
 ```php
-solanaGetCandyMachineDetails($get_candy_details_request): \OpenAPI\Client\Model\GetCandyDetailsResponse
+solanaListAllCandyMachines(): object
 ```
 
-Get a Metaplex candy machine's details
+List all CMs
 
-<a href=\"https://github.com/BL0CK-X/the-blockchain-api/tree/main/examples/solana-candy-machine/get-candy-machine-info\" target=\"_blank\">See examples (Python, JavaScript)</a>.  Use this endpoint to get the following details about a Metaplex candy machine: uuid, go live date, items in the collection, and the cost to mint.  `Cost: 2 Credits` (<a href=\"#section/Pricing\">See Pricing</a>)
+<a href=\"\" target=\"_blank\">See examples (Python, JavaScript) [Coming Soon]</a>.  With this endpoint, you can list all candy machines published to Solana mainnet.  We update this data every 15 minutes.  The output is a list of config addresses, currently about 17000 in length.  `Cost: 2 Credits` (<a href=\"#section/Pricing\">See Pricing</a>)
 
 ### Example
 
@@ -249,25 +249,22 @@ $apiInstance = new OpenAPI\Client\Api\SolanaCandyMachineApi(
     new GuzzleHttp\Client(),
     $config
 );
-$get_candy_details_request = new \OpenAPI\Client\Model\GetCandyDetailsRequest(); // \OpenAPI\Client\Model\GetCandyDetailsRequest
 
 try {
-    $result = $apiInstance->solanaGetCandyMachineDetails($get_candy_details_request);
+    $result = $apiInstance->solanaListAllCandyMachines();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SolanaCandyMachineApi->solanaGetCandyMachineDetails: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SolanaCandyMachineApi->solanaListAllCandyMachines: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **get_candy_details_request** | [**\OpenAPI\Client\Model\GetCandyDetailsRequest**](../Model/GetCandyDetailsRequest.md)|  | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetCandyDetailsResponse**](../Model/GetCandyDetailsResponse.md)
+**object**
 
 ### Authorization
 
@@ -275,74 +272,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `solanaGetNFTsMintedFromCandyMachine()`
-
-```php
-solanaGetNFTsMintedFromCandyMachine($get_minted_nfts_request): \OpenAPI\Client\Model\GetMintedNFTsResponse[]
-```
-
-Get the list of NFTs minted from a Solana Candy Machine
-
-<a href=\"https://github.com/BL0CK-X/the-blockchain-api/tree/main/examples/solana-candy-machine/get-candy-machine-minted-nfts\" target=\"_blank\">See examples (Python, JavaScript)</a>.  Use this endpoint to get the list of NFTs minted from a Solana Candy Machine.  See example for how to get the list of NFT hashes <a href=\"https://github.com/BL0CK-X/the-blockchain-api/tree/main/examples/solana-candy-machine/get-candy-machine-hash-table\" target=\"_blank\">here</a>.  `Cost: 2 Credits` (<a href=\"#section/Pricing\">See Pricing</a>)
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: APIKeyID
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('APIKeyID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIKeyID', 'Bearer');
-
-// Configure API key authorization: APISecretKey
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('APISecretKey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APISecretKey', 'Bearer');
-
-
-$apiInstance = new OpenAPI\Client\Api\SolanaCandyMachineApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$get_minted_nfts_request = new \OpenAPI\Client\Model\GetMintedNFTsRequest(); // \OpenAPI\Client\Model\GetMintedNFTsRequest
-
-try {
-    $result = $apiInstance->solanaGetNFTsMintedFromCandyMachine($get_minted_nfts_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SolanaCandyMachineApi->solanaGetNFTsMintedFromCandyMachine: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **get_minted_nfts_request** | [**\OpenAPI\Client\Model\GetMintedNFTsRequest**](../Model/GetMintedNFTsRequest.md)|  | [optional]
-
-### Return type
-
-[**\OpenAPI\Client\Model\GetMintedNFTsResponse[]**](../Model/GetMintedNFTsResponse.md)
-
-### Authorization
-
-[APIKeyID](../../README.md#APIKeyID), [APISecretKey](../../README.md#APISecretKey)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -355,9 +285,9 @@ Name | Type | Description  | Notes
 solanaMintFromCandyMachine($mint_nft_request): \OpenAPI\Client\Model\MintNFTResponse
 ```
 
-Mint an NFT from a Metaplex candy machine
+Mint from a CM
 
-<a href=\"https://github.com/BL0CK-X/the-blockchain-api/tree/main/examples/solana-candy-machine/mint-from-candy-machine\" target=\"_blank\">See examples (Python, JavaScript)</a>.  Use this endpoint to mint an NFT from a metaplex candy machine as soon as it drops.  `Cost: 10 Credits` (<a href=\"#section/Pricing\">See Pricing</a>)
+<a href=\"https://github.com/BL0CK-X/the-blockchain-api/tree/main/examples/solana-candy-machine/mint-from-candy-machine\" target=\"_blank\">See examples (Python, JavaScript)</a>.  Use this endpoint to mint an NFT from a metaplex candy machine as soon as it drops.  In order to achieve speed, this endpoint sends the transaction without checking whether or not it confirmed. It could still fail, for example, because the candy machine ran out of available mints. You should check the status of the transaction using our <a href=\"#operation/solanaGetTransaction\">getTransaction</a> endpoint.  `Cost: 2 Credits` (<a href=\"#section/Pricing\">See Pricing</a>)
 
 ### Example
 
@@ -402,6 +332,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\OpenAPI\Client\Model\MintNFTResponse**](../Model/MintNFTResponse.md)
+
+### Authorization
+
+[APIKeyID](../../README.md#APIKeyID), [APISecretKey](../../README.md#APISecretKey)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `solanaSearchCandyMachines()`
+
+```php
+solanaSearchCandyMachines($candy_machine_search_request): \OpenAPI\Client\Model\CandyMachineSearchResponse[]
+```
+
+Search CMs
+
+<a href=\"\" target=\"_blank\">See examples (Python, JavaScript) [Coming Soon]</a>.  With this endpoint, you can search candy machines by their symbol, name of NFTs, uuid, configuration address, and update authority.  The output is a list of config addresses.  You can also provide multiple search clauses, such as the update authority (`update_authority=\"G17UmNGnMJ851x3M1JXocgpft1afcYedjPuFpo1ohhCk\"`) and symbol begins with \"Sol\" (`symbol=\"Sol\", symbol_search_method='begins_with'`).  `Cost: 2 Credits` (<a href=\"#section/Pricing\">See Pricing</a>)
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: APIKeyID
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('APIKeyID', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIKeyID', 'Bearer');
+
+// Configure API key authorization: APISecretKey
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('APISecretKey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APISecretKey', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\SolanaCandyMachineApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$candy_machine_search_request = new \OpenAPI\Client\Model\CandyMachineSearchRequest(); // \OpenAPI\Client\Model\CandyMachineSearchRequest
+
+try {
+    $result = $apiInstance->solanaSearchCandyMachines($candy_machine_search_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SolanaCandyMachineApi->solanaSearchCandyMachines: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **candy_machine_search_request** | [**\OpenAPI\Client\Model\CandyMachineSearchRequest**](../Model/CandyMachineSearchRequest.md)|  | [optional]
+
+### Return type
+
+[**\OpenAPI\Client\Model\CandyMachineSearchResponse[]**](../Model/CandyMachineSearchResponse.md)
 
 ### Authorization
 

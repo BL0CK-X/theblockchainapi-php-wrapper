@@ -12,7 +12,7 @@
 /**
  * The Blockchain API
  *
- * # About  Our vision is to make it super easy to interact with the decentralized web. We want you to be able to do this in any coding language and do it easily and quickly.   You're a key part of our vision. We love feature requests! <a href=\"#section/Feature-Requests\">Make one!</a>  # How to Use the API  To use the API, you simply need to create an API key pair.  Doing so takes less than a minute. Simply go to <a target=\"_blank\" href=\"https://dashboard.theblockchainapi.com\">the dashboard</a>, create an account, and generate a key pair. You can now use this pair to make API requests. You must create your first pair via the dashboard.  # Feature Requests  Got a feature request? Submit it as an issue on <a target=\"_blank\" href=\"https://github.com/BL0CK-X/the-blockchain-api/issues/new/choose\">our GitHub repo</a> or [email us](mailto:info@theblockchainapi.com).  # Contact  <figure>     <img          width=\"40px\"         height=\"40px\"          src=\"https://theblockchainapi-docs.s3.amazonaws.com/icons/phone.svg\"     />     <figcaption style=\"textAlign:center;\">Text / Call: +1 (415) 888 4745 </figcaption> </figure> <a href=\"mailto:info@theblockchainapi.com\" target=\"_blank\">     <figure>         <img              width=\"40px\"             height=\"40px\"              src=\"https://theblockchainapi-docs.s3.amazonaws.com/icons/email.svg\"         />         <figcaption style=\"textAlign:center;\">Email us: info@theblockchainapi.com</figcaption>     </figure> </a> <a href=\"https://discord.gg/d49yzrZRAF\" target=\"_blank\">     <figure>         <img              width=\"40px\"             height=\"40px\"              src=\"https://theblockchainapi-docs.s3.amazonaws.com/icons/discord.svg\"         />         <figcaption style=\"textAlign:center;\">Join our Discord</figcaption>     </figure> </a> <a href=\"https://twitter.com/_BlockX_\" target=\"_blank\">     <figure>         <img              width=\"40px\"             height=\"40px\"              src=\"https://theblockchainapi-docs.s3.amazonaws.com/icons/twitter.svg\"         />          <figcaption style=\"textAlign:center;\">Follow us on Twitter</figcaption>     </figure> </a> <a href=\"https://github.com/BL0CK-X/the-blockchain-api\" target=\"_blank\">     <figure>         <img              width=\"40px\"             height=\"40px\"              src=\"https://theblockchainapi-docs.s3.amazonaws.com/icons/github.svg\"         />         <figcaption style=\"textAlign:center;\">Star us on Github</figcaption>     </figure> </a>  # Security  Common dogma is to never give out your seed phrase. We agree. It's a matter of security, and anyone who has your seed phrase can irreversibly empty your wallet.   <b>When using an API endpoint that requires a seed phrase, we highly recommend that users use or create a wallet that they do not use as their primary wallet.</b>   How you make this work depends on what you're doing. If you're minting an NFT for example, we recommend creating a new wallet and then transferring just enough SOL to that wallet to mint the NFT. This is possible on Solana because such transactions cost less than a penny. We will have more tutorials in the future that make it easier for you to be secure when using our API.  We have easy-to-use endpoints for <a href=\"#tag/Solana-Wallet/paths/~1solana~1wallet~1secret_recovery_phrase/post\">creating a new seed phrase</a> and then <a href=\"#tag/Solana-Wallet/paths/~1solana~1wallet~1public_key/post\">deriving a public key</a> to enable you to transfer to that new wallet.  Let's have a constructive dialog about this. Feel free to <a href=\"#section/Contact\">contact us</a>. I made a video discussing this matter <a target=\"_blank\" href=\"https://youtu.be/m9unUb8Z9qU\">here</a>.  Note: We have had a couple of individuals harrass and threaten us. These individuals did <b>not</b> try our API or speak to anyone who has used it. They simply saw that we require a seed phrase for certain endpoints and figured that the proper response was to attack us. (I explain why we do <a target=\"_blank\" href=\"https://youtu.be/m9unUb8Z9qU\">here</a>.) Such harrassment and threats are not only harmful, but they are also illegal, and we will report offenders. Do not harrass us. Rather, feel free to discuss your concerns with us and we will be more than happy to work with you to come up with a solution.  # Pricing  <b>Each user receives 500 free credits every month.</b>  You can learn more about our pricing <a href=\"https://dashboard.theblockchainapi.com/billing\" target=\"_blank\">here</a>.   We frequently do custom plans. If our pricing doesn't work for you, <a href=\"#section/Contact\">contact us</a>.  If you have questions, concerns, feedback, or ideas, <a href=\"#section/Contact\">contact us</a>.  # SDKs / API Wrappers  We have examples using both our <a href=\"https://github.com/BL0CK-X/the-blockchain-api/tree/main/examples\" target=\"_blank\">Python wrapper and our JavaScript wrapper here</a>.  We have built a custom <a href=\"https://github.com/BL0CK-X/the-blockchain-api-python-wrapper\" target=\"_blank\">Python wrapper</a>.  `pip install theblockchainapi`  We also have published a <a href=\"https://github.com/BL0CK-X/theblockchainapi-wrappers/tree/main/javascript\" target=\"_blank\">JavaScript Wrapper</a>.  `npm install theblockchainapi`  We also have auto-generated wrappers for the following languages: - <a href=\"https://github.com/BL0CK-X/theblockchainapi-wrappers/tree/main/go\" target = \"_blank\">Go</a> - <a href=\"https://github.com/BL0CK-X/theblockchainapi-wrappers/tree/main/java\" target = \"_blank\">Java</a> - <a href=\"https://github.com/BL0CK-X/theblockchainapi-wrappers/tree/main/go\" target = \"_blank\">Kotlin</a> - <a href=\"https://github.com/BL0CK-X/theblockchainapi-wrappers/tree/main/go\" target = \"_blank\">PHP</a> - <a href=\"https://github.com/BL0CK-X/theblockchainapi-wrappers/tree/main/go\" target = \"_blank\">Swift5</a> - <a href=\"https://github.com/BL0CK-X/theblockchainapi-wrappers/tree/main/go\" target = \"_blank\">TypeScript</a>  If you would like a different language as well, submit an issue <a href=\"https://github.com/BL0CK-X/theblockchainapi-wrappers/issues/new\" target=\"_blank\">here</a>.  If you run into any bugs with the wrappers, submit an issue <a href=\"https://github.com/BL0CK-X/theblockchainapi-wrappers/issues/new\" target=\"_blank\">here</a>.
+ * # About  Our vision is to make it super easy to interact with the decentralized web. We want you to be able to do this in any coding language and do it easily and quickly.   You're a key part of our vision. We love feature requests! <a href=\"#section/Feature-Requests\">Make one!</a>  # How to Use the API  To use the API, you simply need to create an API key pair.  Doing so takes less than a minute. Simply go to <a target=\"_blank\" href=\"https://dashboard.theblockchainapi.com\">the dashboard</a>, create an account, and generate a key pair. You can now use this pair to make API requests. You must create your first pair via the dashboard.  # Feature Requests  Got a feature request? Submit it as an issue on <a target=\"_blank\" href=\"https://github.com/BL0CK-X/the-blockchain-api/issues/new/choose\">our GitHub repo</a> or [email us](mailto:info@theblockchainapi.com).  # Contact  <figure>     <img          width=\"40px\"         height=\"40px\"          src=\"https://theblockchainapi-docs.s3.amazonaws.com/icons/phone.svg\"     />     <figcaption style=\"textAlign:center;\">Text / Call: +1 (415) 888 4745 </figcaption> </figure> <a href=\"mailto:info@theblockchainapi.com\" target=\"_blank\">     <figure>         <img              width=\"40px\"             height=\"40px\"              src=\"https://theblockchainapi-docs.s3.amazonaws.com/icons/email.svg\"         />         <figcaption style=\"textAlign:center;\">Email us: info@theblockchainapi.com</figcaption>     </figure> </a> <a href=\"https://discord.gg/d49yzrZRAF\" target=\"_blank\">     <figure>         <img              width=\"40px\"             height=\"40px\"              src=\"https://theblockchainapi-docs.s3.amazonaws.com/icons/discord.svg\"         />         <figcaption style=\"textAlign:center;\">Join our Discord</figcaption>     </figure> </a> <a href=\"https://twitter.com/_BlockX_\" target=\"_blank\">     <figure>         <img              width=\"40px\"             height=\"40px\"              src=\"https://theblockchainapi-docs.s3.amazonaws.com/icons/twitter.svg\"         />          <figcaption style=\"textAlign:center;\">Follow us on Twitter</figcaption>     </figure> </a> <a href=\"https://github.com/BL0CK-X/the-blockchain-api\" target=\"_blank\">     <figure>         <img              width=\"40px\"             height=\"40px\"              src=\"https://theblockchainapi-docs.s3.amazonaws.com/icons/github.svg\"         />         <figcaption style=\"textAlign:center;\">Star us on Github</figcaption>     </figure> </a>  # Security  Common dogma is to never give out your seed phrase. We agree. It's a matter of security, and anyone who has your seed phrase can irreversibly empty your wallet.   <b>When using an API endpoint that requires a seed phrase, we highly recommend that users use or create a wallet that they do not use as their primary wallet.</b>   How you make this work depends on what you're doing. If you're minting an NFT for example, we recommend creating a new wallet and then transferring just enough SOL to that wallet to mint the NFT. This is possible on Solana because such transactions cost less than a penny. We will have more tutorials in the future that make it easier for you to be secure when using our API.  We have easy-to-use endpoints for <a href=\"#tag/Solana-Wallet/paths/~1solana~1wallet~1secret_recovery_phrase/post\">creating a new seed phrase</a> and then <a href=\"#tag/Solana-Wallet/paths/~1solana~1wallet~1public_key/post\">deriving a public key</a> to enable you to transfer to that new wallet.  Let's have a constructive dialog about this. Feel free to <a href=\"#section/Contact\">contact us</a>. I made a video discussing this matter <a target=\"_blank\" href=\"https://youtu.be/m9unUb8Z9qU\">here</a>.  Note: We have had a couple of individuals harrass and threaten us. These individuals did <b>not</b> try our API or speak to anyone who has used it. They simply saw that we require a seed phrase for certain endpoints and figured that the proper response was to attack us. (I explain why we do <a target=\"_blank\" href=\"https://youtu.be/m9unUb8Z9qU\">here</a>.) Such harrassment and threats are not only harmful, but they are also illegal, and we will report offenders. Do not harrass us. Rather, feel free to discuss your concerns with us and we will be more than happy to work with you to come up with a solution.  # Pricing  <b>Each user receives 500 free credits.</b>  You can learn more about our pricing <a href=\"https://dashboard.theblockchainapi.com/billing\" target=\"_blank\">here</a>.   We frequently do custom plans. If our pricing doesn't work for you, <a href=\"#section/Contact\">contact us</a>.  If you have questions, concerns, feedback, or ideas, <a href=\"#section/Contact\">contact us</a>.  # SDKs / API Wrappers  We have examples using both our <a href=\"https://github.com/BL0CK-X/the-blockchain-api/tree/main/examples\" target=\"_blank\">Python wrapper and our JavaScript wrapper here</a>.  We have built a custom <a href=\"https://github.com/BL0CK-X/the-blockchain-api-python-wrapper\" target=\"_blank\">Python wrapper</a>.  `pip install theblockchainapi`  We also have published a <a href=\"https://github.com/BL0CK-X/theblockchainapi-javascript-wrapper\" target=\"_blank\">JavaScript Wrapper</a>.  `npm install theblockchainapi`  We also have auto-generated wrappers for the following languages: - <a href=\"https://github.com/BL0CK-X/theblockchainapi-go-wrapper\" target = \"_blank\">Go</a> - <a href=\"https://github.com/BL0CK-X/theblockchainapi-java-wrapper\" target = \"_blank\">Java</a> - <a href=\"https://github.com/BL0CK-X/theblockchainapi-kotlin-wrapper\" target = \"_blank\">Kotlin</a> - <a href=\"https://github.com/BL0CK-X/theblockchainapi-php-wrapper\" target = \"_blank\">PHP</a> - <a href=\"https://github.com/BL0CK-X/theblockchainapi-swift-wrapper\" target = \"_blank\">Swift5</a> - <a href=\"https://github.com/BL0CK-X/theblockchainapi-typescript-wrapper\" target = \"_blank\">TypeScript</a>  If you would like a different language as well, submit an issue <a href=\"https://github.com/BL0CK-X/theblockchainapi-wrappers/issues/new\" target=\"_blank\">here</a>.  If you run into any bugs with the wrappers, submit an issue <a href=\"https://github.com/BL0CK-X/theblockchainapi-wrappers/issues/new\" target=\"_blank\">here</a>.
  *
  * The version of the OpenAPI document: null
  * Contact: info@theblockchainapi.com
@@ -119,7 +119,7 @@ class SolanaCandyMachineApi
     /**
      * Operation solanaCreateTestCandyMachine
      *
-     * Create a test candy machine
+     * Create a test CM
      *
      * @param  \OpenAPI\Client\Model\CreateTestCandyMachineRequest $create_test_candy_machine_request create_test_candy_machine_request (optional)
      *
@@ -136,7 +136,7 @@ class SolanaCandyMachineApi
     /**
      * Operation solanaCreateTestCandyMachineWithHttpInfo
      *
-     * Create a test candy machine
+     * Create a test CM
      *
      * @param  \OpenAPI\Client\Model\CreateTestCandyMachineRequest $create_test_candy_machine_request (optional)
      *
@@ -229,7 +229,7 @@ class SolanaCandyMachineApi
     /**
      * Operation solanaCreateTestCandyMachineAsync
      *
-     * Create a test candy machine
+     * Create a test CM
      *
      * @param  \OpenAPI\Client\Model\CreateTestCandyMachineRequest $create_test_candy_machine_request (optional)
      *
@@ -249,7 +249,7 @@ class SolanaCandyMachineApi
     /**
      * Operation solanaCreateTestCandyMachineAsyncWithHttpInfo
      *
-     * Create a test candy machine
+     * Create a test CM
      *
      * @param  \OpenAPI\Client\Model\CreateTestCandyMachineRequest $create_test_candy_machine_request (optional)
      *
@@ -392,7 +392,7 @@ class SolanaCandyMachineApi
     /**
      * Operation solanaGetAllNFTsFromCandyMachine
      *
-     * Get the list of all NFTs (minted and unminted) from a Solana Candy Machine
+     * Get CM&#39;s NFTs
      *
      * @param  string $network The network ID (devnet, mainnet-beta) (required)
      * @param  string $candy_machine_id The ID of the candy machine (required)
@@ -410,7 +410,7 @@ class SolanaCandyMachineApi
     /**
      * Operation solanaGetAllNFTsFromCandyMachineWithHttpInfo
      *
-     * Get the list of all NFTs (minted and unminted) from a Solana Candy Machine
+     * Get CM&#39;s NFTs
      *
      * @param  string $network The network ID (devnet, mainnet-beta) (required)
      * @param  string $candy_machine_id The ID of the candy machine (required)
@@ -504,7 +504,7 @@ class SolanaCandyMachineApi
     /**
      * Operation solanaGetAllNFTsFromCandyMachineAsync
      *
-     * Get the list of all NFTs (minted and unminted) from a Solana Candy Machine
+     * Get CM&#39;s NFTs
      *
      * @param  string $network The network ID (devnet, mainnet-beta) (required)
      * @param  string $candy_machine_id The ID of the candy machine (required)
@@ -525,7 +525,7 @@ class SolanaCandyMachineApi
     /**
      * Operation solanaGetAllNFTsFromCandyMachineAsyncWithHttpInfo
      *
-     * Get the list of all NFTs (minted and unminted) from a Solana Candy Machine
+     * Get CM&#39;s NFTs
      *
      * @param  string $network The network ID (devnet, mainnet-beta) (required)
      * @param  string $candy_machine_id The ID of the candy machine (required)
@@ -690,36 +690,36 @@ class SolanaCandyMachineApi
     }
 
     /**
-     * Operation solanaGetCandyMachineConfigurationDetails
+     * Operation solanaGetCandyMachineMetadata
      *
-     * Get the details of a Solana Candy Machine configuration
+     * Get a CM&#39;s metadata
      *
-     * @param  \OpenAPI\Client\Model\GetConfigInfoRequest $get_config_info_request get_config_info_request (optional)
+     * @param  \OpenAPI\Client\Model\GetCandyMetadataRequest $get_candy_metadata_request get_candy_metadata_request (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetConfigInfoResponse
+     * @return \OpenAPI\Client\Model\GetCandyMetadataResponse|\OpenAPI\Client\Model\GetCandyMetadataErrorResponse
      */
-    public function solanaGetCandyMachineConfigurationDetails($get_config_info_request = null)
+    public function solanaGetCandyMachineMetadata($get_candy_metadata_request = null)
     {
-        list($response) = $this->solanaGetCandyMachineConfigurationDetailsWithHttpInfo($get_config_info_request);
+        list($response) = $this->solanaGetCandyMachineMetadataWithHttpInfo($get_candy_metadata_request);
         return $response;
     }
 
     /**
-     * Operation solanaGetCandyMachineConfigurationDetailsWithHttpInfo
+     * Operation solanaGetCandyMachineMetadataWithHttpInfo
      *
-     * Get the details of a Solana Candy Machine configuration
+     * Get a CM&#39;s metadata
      *
-     * @param  \OpenAPI\Client\Model\GetConfigInfoRequest $get_config_info_request (optional)
+     * @param  \OpenAPI\Client\Model\GetCandyMetadataRequest $get_candy_metadata_request (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetConfigInfoResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\GetCandyMetadataResponse|\OpenAPI\Client\Model\GetCandyMetadataErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function solanaGetCandyMachineConfigurationDetailsWithHttpInfo($get_config_info_request = null)
+    public function solanaGetCandyMachineMetadataWithHttpInfo($get_candy_metadata_request = null)
     {
-        $request = $this->solanaGetCandyMachineConfigurationDetailsRequest($get_config_info_request);
+        $request = $this->solanaGetCandyMachineMetadataRequest($get_candy_metadata_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -758,20 +758,32 @@ class SolanaCandyMachineApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetConfigInfoResponse' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\GetCandyMetadataResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetConfigInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetCandyMetadataResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\GetCandyMetadataErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetCandyMetadataErrorResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetConfigInfoResponse';
+            $returnType = '\OpenAPI\Client\Model\GetCandyMetadataResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -789,7 +801,15 @@ class SolanaCandyMachineApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetConfigInfoResponse',
+                        '\OpenAPI\Client\Model\GetCandyMetadataResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\GetCandyMetadataErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -800,18 +820,18 @@ class SolanaCandyMachineApi
     }
 
     /**
-     * Operation solanaGetCandyMachineConfigurationDetailsAsync
+     * Operation solanaGetCandyMachineMetadataAsync
      *
-     * Get the details of a Solana Candy Machine configuration
+     * Get a CM&#39;s metadata
      *
-     * @param  \OpenAPI\Client\Model\GetConfigInfoRequest $get_config_info_request (optional)
+     * @param  \OpenAPI\Client\Model\GetCandyMetadataRequest $get_candy_metadata_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function solanaGetCandyMachineConfigurationDetailsAsync($get_config_info_request = null)
+    public function solanaGetCandyMachineMetadataAsync($get_candy_metadata_request = null)
     {
-        return $this->solanaGetCandyMachineConfigurationDetailsAsyncWithHttpInfo($get_config_info_request)
+        return $this->solanaGetCandyMachineMetadataAsyncWithHttpInfo($get_candy_metadata_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -820,19 +840,19 @@ class SolanaCandyMachineApi
     }
 
     /**
-     * Operation solanaGetCandyMachineConfigurationDetailsAsyncWithHttpInfo
+     * Operation solanaGetCandyMachineMetadataAsyncWithHttpInfo
      *
-     * Get the details of a Solana Candy Machine configuration
+     * Get a CM&#39;s metadata
      *
-     * @param  \OpenAPI\Client\Model\GetConfigInfoRequest $get_config_info_request (optional)
+     * @param  \OpenAPI\Client\Model\GetCandyMetadataRequest $get_candy_metadata_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function solanaGetCandyMachineConfigurationDetailsAsyncWithHttpInfo($get_config_info_request = null)
+    public function solanaGetCandyMachineMetadataAsyncWithHttpInfo($get_candy_metadata_request = null)
     {
-        $returnType = '\OpenAPI\Client\Model\GetConfigInfoResponse';
-        $request = $this->solanaGetCandyMachineConfigurationDetailsRequest($get_config_info_request);
+        $returnType = '\OpenAPI\Client\Model\GetCandyMetadataResponse';
+        $request = $this->solanaGetCandyMachineMetadataRequest($get_candy_metadata_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -868,17 +888,17 @@ class SolanaCandyMachineApi
     }
 
     /**
-     * Create request for operation 'solanaGetCandyMachineConfigurationDetails'
+     * Create request for operation 'solanaGetCandyMachineMetadata'
      *
-     * @param  \OpenAPI\Client\Model\GetConfigInfoRequest $get_config_info_request (optional)
+     * @param  \OpenAPI\Client\Model\GetCandyMetadataRequest $get_candy_metadata_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function solanaGetCandyMachineConfigurationDetailsRequest($get_config_info_request = null)
+    public function solanaGetCandyMachineMetadataRequest($get_candy_metadata_request = null)
     {
 
-        $resourcePath = '/solana/nft/candy_machine/config/info';
+        $resourcePath = '/solana/nft/candy_machine/metadata';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -901,11 +921,11 @@ class SolanaCandyMachineApi
         }
 
         // for model (json/xml)
-        if (isset($get_config_info_request)) {
+        if (isset($get_candy_metadata_request)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($get_config_info_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($get_candy_metadata_request));
             } else {
-                $httpBody = $get_config_info_request;
+                $httpBody = $get_candy_metadata_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -963,36 +983,34 @@ class SolanaCandyMachineApi
     }
 
     /**
-     * Operation solanaGetCandyMachineDetails
+     * Operation solanaListAllCandyMachines
      *
-     * Get a Metaplex candy machine&#39;s details
+     * List all CMs
      *
-     * @param  \OpenAPI\Client\Model\GetCandyDetailsRequest $get_candy_details_request get_candy_details_request (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetCandyDetailsResponse|\OpenAPI\Client\Model\GetCandyDetailsErrorResponse
+     * @return object
      */
-    public function solanaGetCandyMachineDetails($get_candy_details_request = null)
+    public function solanaListAllCandyMachines()
     {
-        list($response) = $this->solanaGetCandyMachineDetailsWithHttpInfo($get_candy_details_request);
+        list($response) = $this->solanaListAllCandyMachinesWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation solanaGetCandyMachineDetailsWithHttpInfo
+     * Operation solanaListAllCandyMachinesWithHttpInfo
      *
-     * Get a Metaplex candy machine&#39;s details
+     * List all CMs
      *
-     * @param  \OpenAPI\Client\Model\GetCandyDetailsRequest $get_candy_details_request (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetCandyDetailsResponse|\OpenAPI\Client\Model\GetCandyDetailsErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function solanaGetCandyMachineDetailsWithHttpInfo($get_candy_details_request = null)
+    public function solanaListAllCandyMachinesWithHttpInfo()
     {
-        $request = $this->solanaGetCandyMachineDetailsRequest($get_candy_details_request);
+        $request = $this->solanaListAllCandyMachinesRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -1031,32 +1049,20 @@ class SolanaCandyMachineApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\GetCandyDetailsResponse' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetCandyDetailsResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\OpenAPI\Client\Model\GetCandyDetailsErrorResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetCandyDetailsErrorResponse', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\GetCandyDetailsResponse';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1074,15 +1080,7 @@ class SolanaCandyMachineApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetCandyDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetCandyDetailsErrorResponse',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1093,18 +1091,17 @@ class SolanaCandyMachineApi
     }
 
     /**
-     * Operation solanaGetCandyMachineDetailsAsync
+     * Operation solanaListAllCandyMachinesAsync
      *
-     * Get a Metaplex candy machine&#39;s details
+     * List all CMs
      *
-     * @param  \OpenAPI\Client\Model\GetCandyDetailsRequest $get_candy_details_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function solanaGetCandyMachineDetailsAsync($get_candy_details_request = null)
+    public function solanaListAllCandyMachinesAsync()
     {
-        return $this->solanaGetCandyMachineDetailsAsyncWithHttpInfo($get_candy_details_request)
+        return $this->solanaListAllCandyMachinesAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1113,19 +1110,18 @@ class SolanaCandyMachineApi
     }
 
     /**
-     * Operation solanaGetCandyMachineDetailsAsyncWithHttpInfo
+     * Operation solanaListAllCandyMachinesAsyncWithHttpInfo
      *
-     * Get a Metaplex candy machine&#39;s details
+     * List all CMs
      *
-     * @param  \OpenAPI\Client\Model\GetCandyDetailsRequest $get_candy_details_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function solanaGetCandyMachineDetailsAsyncWithHttpInfo($get_candy_details_request = null)
+    public function solanaListAllCandyMachinesAsyncWithHttpInfo()
     {
-        $returnType = '\OpenAPI\Client\Model\GetCandyDetailsResponse';
-        $request = $this->solanaGetCandyMachineDetailsRequest($get_candy_details_request);
+        $returnType = 'object';
+        $request = $this->solanaListAllCandyMachinesRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1161,17 +1157,16 @@ class SolanaCandyMachineApi
     }
 
     /**
-     * Create request for operation 'solanaGetCandyMachineDetails'
+     * Create request for operation 'solanaListAllCandyMachines'
      *
-     * @param  \OpenAPI\Client\Model\GetCandyDetailsRequest $get_candy_details_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function solanaGetCandyMachineDetailsRequest($get_candy_details_request = null)
+    public function solanaListAllCandyMachinesRequest()
     {
 
-        $resourcePath = '/solana/nft/candy_machine/info';
+        $resourcePath = '/solana/nft/candy_machine/list';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1189,18 +1184,12 @@ class SolanaCandyMachineApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                []
             );
         }
 
         // for model (json/xml)
-        if (isset($get_candy_details_request)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($get_candy_details_request));
-            } else {
-                $httpBody = $get_candy_details_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -1248,280 +1237,7 @@ class SolanaCandyMachineApi
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation solanaGetNFTsMintedFromCandyMachine
-     *
-     * Get the list of NFTs minted from a Solana Candy Machine
-     *
-     * @param  \OpenAPI\Client\Model\GetMintedNFTsRequest $get_minted_nfts_request get_minted_nfts_request (optional)
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\GetMintedNFTsResponse[]
-     */
-    public function solanaGetNFTsMintedFromCandyMachine($get_minted_nfts_request = null)
-    {
-        list($response) = $this->solanaGetNFTsMintedFromCandyMachineWithHttpInfo($get_minted_nfts_request);
-        return $response;
-    }
-
-    /**
-     * Operation solanaGetNFTsMintedFromCandyMachineWithHttpInfo
-     *
-     * Get the list of NFTs minted from a Solana Candy Machine
-     *
-     * @param  \OpenAPI\Client\Model\GetMintedNFTsRequest $get_minted_nfts_request (optional)
-     *
-     * @throws \OpenAPI\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\GetMintedNFTsResponse[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function solanaGetNFTsMintedFromCandyMachineWithHttpInfo($get_minted_nfts_request = null)
-    {
-        $request = $this->solanaGetNFTsMintedFromCandyMachineRequest($get_minted_nfts_request);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\OpenAPI\Client\Model\GetMintedNFTsResponse[]' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetMintedNFTsResponse[]', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\OpenAPI\Client\Model\GetMintedNFTsResponse[]';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\GetMintedNFTsResponse[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation solanaGetNFTsMintedFromCandyMachineAsync
-     *
-     * Get the list of NFTs minted from a Solana Candy Machine
-     *
-     * @param  \OpenAPI\Client\Model\GetMintedNFTsRequest $get_minted_nfts_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function solanaGetNFTsMintedFromCandyMachineAsync($get_minted_nfts_request = null)
-    {
-        return $this->solanaGetNFTsMintedFromCandyMachineAsyncWithHttpInfo($get_minted_nfts_request)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation solanaGetNFTsMintedFromCandyMachineAsyncWithHttpInfo
-     *
-     * Get the list of NFTs minted from a Solana Candy Machine
-     *
-     * @param  \OpenAPI\Client\Model\GetMintedNFTsRequest $get_minted_nfts_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function solanaGetNFTsMintedFromCandyMachineAsyncWithHttpInfo($get_minted_nfts_request = null)
-    {
-        $returnType = '\OpenAPI\Client\Model\GetMintedNFTsResponse[]';
-        $request = $this->solanaGetNFTsMintedFromCandyMachineRequest($get_minted_nfts_request);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'solanaGetNFTsMintedFromCandyMachine'
-     *
-     * @param  \OpenAPI\Client\Model\GetMintedNFTsRequest $get_minted_nfts_request (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function solanaGetNFTsMintedFromCandyMachineRequest($get_minted_nfts_request = null)
-    {
-
-        $resourcePath = '/solana/nft/candy_machine/nfts';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($get_minted_nfts_request)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($get_minted_nfts_request));
-            } else {
-                $httpBody = $get_minted_nfts_request;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('APIKeyID');
-        if ($apiKey !== null) {
-            $headers['APIKeyID'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('APISecretKey');
-        if ($apiKey !== null) {
-            $headers['APISecretKey'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'POST',
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -1531,7 +1247,7 @@ class SolanaCandyMachineApi
     /**
      * Operation solanaMintFromCandyMachine
      *
-     * Mint an NFT from a Metaplex candy machine
+     * Mint from a CM
      *
      * @param  \OpenAPI\Client\Model\MintNFTRequest $mint_nft_request mint_nft_request (optional)
      *
@@ -1548,7 +1264,7 @@ class SolanaCandyMachineApi
     /**
      * Operation solanaMintFromCandyMachineWithHttpInfo
      *
-     * Mint an NFT from a Metaplex candy machine
+     * Mint from a CM
      *
      * @param  \OpenAPI\Client\Model\MintNFTRequest $mint_nft_request (optional)
      *
@@ -1661,7 +1377,7 @@ class SolanaCandyMachineApi
     /**
      * Operation solanaMintFromCandyMachineAsync
      *
-     * Mint an NFT from a Metaplex candy machine
+     * Mint from a CM
      *
      * @param  \OpenAPI\Client\Model\MintNFTRequest $mint_nft_request (optional)
      *
@@ -1681,7 +1397,7 @@ class SolanaCandyMachineApi
     /**
      * Operation solanaMintFromCandyMachineAsyncWithHttpInfo
      *
-     * Mint an NFT from a Metaplex candy machine
+     * Mint from a CM
      *
      * @param  \OpenAPI\Client\Model\MintNFTRequest $mint_nft_request (optional)
      *
@@ -1765,6 +1481,279 @@ class SolanaCandyMachineApi
                 $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($mint_nft_request));
             } else {
                 $httpBody = $mint_nft_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('APIKeyID');
+        if ($apiKey !== null) {
+            $headers['APIKeyID'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('APISecretKey');
+        if ($apiKey !== null) {
+            $headers['APISecretKey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation solanaSearchCandyMachines
+     *
+     * Search CMs
+     *
+     * @param  \OpenAPI\Client\Model\CandyMachineSearchRequest $candy_machine_search_request candy_machine_search_request (optional)
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\CandyMachineSearchResponse[]
+     */
+    public function solanaSearchCandyMachines($candy_machine_search_request = null)
+    {
+        list($response) = $this->solanaSearchCandyMachinesWithHttpInfo($candy_machine_search_request);
+        return $response;
+    }
+
+    /**
+     * Operation solanaSearchCandyMachinesWithHttpInfo
+     *
+     * Search CMs
+     *
+     * @param  \OpenAPI\Client\Model\CandyMachineSearchRequest $candy_machine_search_request (optional)
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\CandyMachineSearchResponse[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function solanaSearchCandyMachinesWithHttpInfo($candy_machine_search_request = null)
+    {
+        $request = $this->solanaSearchCandyMachinesRequest($candy_machine_search_request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\CandyMachineSearchResponse[]' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CandyMachineSearchResponse[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\CandyMachineSearchResponse[]';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\CandyMachineSearchResponse[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation solanaSearchCandyMachinesAsync
+     *
+     * Search CMs
+     *
+     * @param  \OpenAPI\Client\Model\CandyMachineSearchRequest $candy_machine_search_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function solanaSearchCandyMachinesAsync($candy_machine_search_request = null)
+    {
+        return $this->solanaSearchCandyMachinesAsyncWithHttpInfo($candy_machine_search_request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation solanaSearchCandyMachinesAsyncWithHttpInfo
+     *
+     * Search CMs
+     *
+     * @param  \OpenAPI\Client\Model\CandyMachineSearchRequest $candy_machine_search_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function solanaSearchCandyMachinesAsyncWithHttpInfo($candy_machine_search_request = null)
+    {
+        $returnType = '\OpenAPI\Client\Model\CandyMachineSearchResponse[]';
+        $request = $this->solanaSearchCandyMachinesRequest($candy_machine_search_request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'solanaSearchCandyMachines'
+     *
+     * @param  \OpenAPI\Client\Model\CandyMachineSearchRequest $candy_machine_search_request (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function solanaSearchCandyMachinesRequest($candy_machine_search_request = null)
+    {
+
+        $resourcePath = '/solana/nft/candy_machine/search';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($candy_machine_search_request)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($candy_machine_search_request));
+            } else {
+                $httpBody = $candy_machine_search_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
