@@ -34,7 +34,6 @@ docs/Model/GetCandyMetadataResponseCreators.md
 docs/Model/GetFileResponse.md
 docs/Model/GetPublicKeyRequest.md
 docs/Model/ListNFTsResponse.md
-docs/Model/ListTokensRequest.md
 docs/Model/MintNFTErrorResponse.md
 docs/Model/MintNFTRequest.md
 docs/Model/MintNFTResponse.md
@@ -87,7 +86,6 @@ lib/Model/GetCandyMetadataResponseCreators.php
 lib/Model/GetFileResponse.php
 lib/Model/GetPublicKeyRequest.php
 lib/Model/ListNFTsResponse.php
-lib/Model/ListTokensRequest.php
 lib/Model/MintNFTErrorResponse.php
 lib/Model/MintNFTRequest.php
 lib/Model/MintNFTResponse.php
@@ -108,4 +106,3 @@ lib/Model/TransferResponse.php
 lib/Model/UploadFileRequest.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/ListTokensRequestTest.php

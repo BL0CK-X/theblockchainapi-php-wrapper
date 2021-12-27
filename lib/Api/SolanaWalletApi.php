@@ -1810,15 +1810,16 @@ class SolanaWalletApi
      *
      * @param  string $network The network ID (devnet, mainnet-beta) (required)
      * @param  string $public_key The public key of the account whose list of owned NFTs you want to get (required)
-     * @param  \OpenAPI\Client\Model\ListTokensRequest $list_tokens_request list_tokens_request (optional)
+     * @param  bool $include_nfts Whether or not to include NFTs in the response (optional, default to false)
+     * @param  bool $include_zero_balance_holdings Whether or not to include holdings that have zero balance. This indicates that the wallet held this token or NFT in the past, but no longer holds it. (optional, default to false)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object[]
      */
-    public function solanaGetTokensBelongingToWallet($network, $public_key, $list_tokens_request = null)
+    public function solanaGetTokensBelongingToWallet($network, $public_key, $include_nfts = false, $include_zero_balance_holdings = false)
     {
-        list($response) = $this->solanaGetTokensBelongingToWalletWithHttpInfo($network, $public_key, $list_tokens_request);
+        list($response) = $this->solanaGetTokensBelongingToWalletWithHttpInfo($network, $public_key, $include_nfts, $include_zero_balance_holdings);
         return $response;
     }
 
@@ -1829,15 +1830,16 @@ class SolanaWalletApi
      *
      * @param  string $network The network ID (devnet, mainnet-beta) (required)
      * @param  string $public_key The public key of the account whose list of owned NFTs you want to get (required)
-     * @param  \OpenAPI\Client\Model\ListTokensRequest $list_tokens_request (optional)
+     * @param  bool $include_nfts Whether or not to include NFTs in the response (optional, default to false)
+     * @param  bool $include_zero_balance_holdings Whether or not to include holdings that have zero balance. This indicates that the wallet held this token or NFT in the past, but no longer holds it. (optional, default to false)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function solanaGetTokensBelongingToWalletWithHttpInfo($network, $public_key, $list_tokens_request = null)
+    public function solanaGetTokensBelongingToWalletWithHttpInfo($network, $public_key, $include_nfts = false, $include_zero_balance_holdings = false)
     {
-        $request = $this->solanaGetTokensBelongingToWalletRequest($network, $public_key, $list_tokens_request);
+        $request = $this->solanaGetTokensBelongingToWalletRequest($network, $public_key, $include_nfts, $include_zero_balance_holdings);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1924,14 +1926,15 @@ class SolanaWalletApi
      *
      * @param  string $network The network ID (devnet, mainnet-beta) (required)
      * @param  string $public_key The public key of the account whose list of owned NFTs you want to get (required)
-     * @param  \OpenAPI\Client\Model\ListTokensRequest $list_tokens_request (optional)
+     * @param  bool $include_nfts Whether or not to include NFTs in the response (optional, default to false)
+     * @param  bool $include_zero_balance_holdings Whether or not to include holdings that have zero balance. This indicates that the wallet held this token or NFT in the past, but no longer holds it. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function solanaGetTokensBelongingToWalletAsync($network, $public_key, $list_tokens_request = null)
+    public function solanaGetTokensBelongingToWalletAsync($network, $public_key, $include_nfts = false, $include_zero_balance_holdings = false)
     {
-        return $this->solanaGetTokensBelongingToWalletAsyncWithHttpInfo($network, $public_key, $list_tokens_request)
+        return $this->solanaGetTokensBelongingToWalletAsyncWithHttpInfo($network, $public_key, $include_nfts, $include_zero_balance_holdings)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1946,15 +1949,16 @@ class SolanaWalletApi
      *
      * @param  string $network The network ID (devnet, mainnet-beta) (required)
      * @param  string $public_key The public key of the account whose list of owned NFTs you want to get (required)
-     * @param  \OpenAPI\Client\Model\ListTokensRequest $list_tokens_request (optional)
+     * @param  bool $include_nfts Whether or not to include NFTs in the response (optional, default to false)
+     * @param  bool $include_zero_balance_holdings Whether or not to include holdings that have zero balance. This indicates that the wallet held this token or NFT in the past, but no longer holds it. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function solanaGetTokensBelongingToWalletAsyncWithHttpInfo($network, $public_key, $list_tokens_request = null)
+    public function solanaGetTokensBelongingToWalletAsyncWithHttpInfo($network, $public_key, $include_nfts = false, $include_zero_balance_holdings = false)
     {
         $returnType = 'object[]';
-        $request = $this->solanaGetTokensBelongingToWalletRequest($network, $public_key, $list_tokens_request);
+        $request = $this->solanaGetTokensBelongingToWalletRequest($network, $public_key, $include_nfts, $include_zero_balance_holdings);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1994,12 +1998,13 @@ class SolanaWalletApi
      *
      * @param  string $network The network ID (devnet, mainnet-beta) (required)
      * @param  string $public_key The public key of the account whose list of owned NFTs you want to get (required)
-     * @param  \OpenAPI\Client\Model\ListTokensRequest $list_tokens_request (optional)
+     * @param  bool $include_nfts Whether or not to include NFTs in the response (optional, default to false)
+     * @param  bool $include_zero_balance_holdings Whether or not to include holdings that have zero balance. This indicates that the wallet held this token or NFT in the past, but no longer holds it. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function solanaGetTokensBelongingToWalletRequest($network, $public_key, $list_tokens_request = null)
+    public function solanaGetTokensBelongingToWalletRequest($network, $public_key, $include_nfts = false, $include_zero_balance_holdings = false)
     {
         // verify the required parameter 'network' is set
         if ($network === null || (is_array($network) && count($network) === 0)) {
@@ -2021,6 +2026,28 @@ class SolanaWalletApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($include_nfts !== null) {
+            if('form' === 'form' && is_array($include_nfts)) {
+                foreach($include_nfts as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_nfts'] = $include_nfts;
+            }
+        }
+        // query params
+        if ($include_zero_balance_holdings !== null) {
+            if('form' === 'form' && is_array($include_zero_balance_holdings)) {
+                foreach($include_zero_balance_holdings as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_zero_balance_holdings'] = $include_zero_balance_holdings;
+            }
+        }
 
 
         // path params
@@ -2048,18 +2075,12 @@ class SolanaWalletApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                []
             );
         }
 
         // for model (json/xml)
-        if (isset($list_tokens_request)) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($list_tokens_request));
-            } else {
-                $httpBody = $list_tokens_request;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

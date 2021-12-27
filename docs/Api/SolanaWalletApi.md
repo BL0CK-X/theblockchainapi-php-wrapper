@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 ## `solanaGetTokensBelongingToWallet()`
 
 ```php
-solanaGetTokensBelongingToWallet($network, $public_key, $list_tokens_request): object[]
+solanaGetTokensBelongingToWallet($network, $public_key, $include_nfts, $include_zero_balance_holdings): object[]
 ```
 
 Get address's tokens and respective balances
@@ -453,10 +453,11 @@ $apiInstance = new OpenAPI\Client\Api\SolanaWalletApi(
 );
 $network = mainnet-beta; // string | The network ID (devnet, mainnet-beta)
 $public_key = GKNcUmNacSJo4S2Kq3DuYRYRGw3sNUfJ4tyqd198t6vQ; // string | The public key of the account whose list of owned NFTs you want to get
-$list_tokens_request = new \OpenAPI\Client\Model\ListTokensRequest(); // \OpenAPI\Client\Model\ListTokensRequest
+$include_nfts = false; // bool | Whether or not to include NFTs in the response
+$include_zero_balance_holdings = false; // bool | Whether or not to include holdings that have zero balance. This indicates that the wallet held this token or NFT in the past, but no longer holds it.
 
 try {
-    $result = $apiInstance->solanaGetTokensBelongingToWallet($network, $public_key, $list_tokens_request);
+    $result = $apiInstance->solanaGetTokensBelongingToWallet($network, $public_key, $include_nfts, $include_zero_balance_holdings);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SolanaWalletApi->solanaGetTokensBelongingToWallet: ', $e->getMessage(), PHP_EOL;
@@ -469,7 +470,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **network** | **string**| The network ID (devnet, mainnet-beta) |
  **public_key** | **string**| The public key of the account whose list of owned NFTs you want to get |
- **list_tokens_request** | [**\OpenAPI\Client\Model\ListTokensRequest**](../Model/ListTokensRequest.md)|  | [optional]
+ **include_nfts** | **bool**| Whether or not to include NFTs in the response | [optional] [default to false]
+ **include_zero_balance_holdings** | **bool**| Whether or not to include holdings that have zero balance. This indicates that the wallet held this token or NFT in the past, but no longer holds it. | [optional] [default to false]
 
 ### Return type
 
@@ -481,7 +483,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
