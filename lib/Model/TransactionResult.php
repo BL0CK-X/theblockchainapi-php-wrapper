@@ -1,6 +1,6 @@
 <?php
 /**
- * GetPublicKeyRequest
+ * TransactionResult
  *
  * PHP version 7.3
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * GetPublicKeyRequest Class Doc Comment
+ * TransactionResult Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -43,7 +43,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class TransactionResult implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetPublicKeyRequest';
+    protected static $openAPIModelName = 'Transaction_result';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,10 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'wallet' => '\OpenAPI\Client\Model\Wallet'
+        'block_time' => 'float',
+        'meta' => 'object',
+        'slot' => 'float',
+        'transaction' => 'object'
     ];
 
     /**
@@ -71,7 +74,10 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'wallet' => null
+        'block_time' => null,
+        'meta' => null,
+        'slot' => null,
+        'transaction' => null
     ];
 
     /**
@@ -101,7 +107,10 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'wallet' => 'wallet'
+        'block_time' => 'block_time',
+        'meta' => 'meta',
+        'slot' => 'slot',
+        'transaction' => 'transaction'
     ];
 
     /**
@@ -110,7 +119,10 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'wallet' => 'setWallet'
+        'block_time' => 'setBlockTime',
+        'meta' => 'setMeta',
+        'slot' => 'setSlot',
+        'transaction' => 'setTransaction'
     ];
 
     /**
@@ -119,7 +131,10 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'wallet' => 'getWallet'
+        'block_time' => 'getBlockTime',
+        'meta' => 'getMeta',
+        'slot' => 'getSlot',
+        'transaction' => 'getTransaction'
     ];
 
     /**
@@ -179,7 +194,10 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['wallet'] = $data['wallet'] ?? null;
+        $this->container['block_time'] = $data['block_time'] ?? null;
+        $this->container['meta'] = $data['meta'] ?? null;
+        $this->container['slot'] = $data['slot'] ?? null;
+        $this->container['transaction'] = $data['transaction'] ?? null;
     }
 
     /**
@@ -191,9 +209,6 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['wallet'] === null) {
-            $invalidProperties[] = "'wallet' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -210,25 +225,97 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets wallet
+     * Gets block_time
      *
-     * @return \OpenAPI\Client\Model\Wallet
+     * @return float|null
      */
-    public function getWallet()
+    public function getBlockTime()
     {
-        return $this->container['wallet'];
+        return $this->container['block_time'];
     }
 
     /**
-     * Sets wallet
+     * Sets block_time
      *
-     * @param \OpenAPI\Client\Model\Wallet $wallet wallet
+     * @param float|null $block_time block_time
      *
      * @return self
      */
-    public function setWallet($wallet)
+    public function setBlockTime($block_time)
     {
-        $this->container['wallet'] = $wallet;
+        $this->container['block_time'] = $block_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets meta
+     *
+     * @return object|null
+     */
+    public function getMeta()
+    {
+        return $this->container['meta'];
+    }
+
+    /**
+     * Sets meta
+     *
+     * @param object|null $meta meta
+     *
+     * @return self
+     */
+    public function setMeta($meta)
+    {
+        $this->container['meta'] = $meta;
+
+        return $this;
+    }
+
+    /**
+     * Gets slot
+     *
+     * @return float|null
+     */
+    public function getSlot()
+    {
+        return $this->container['slot'];
+    }
+
+    /**
+     * Sets slot
+     *
+     * @param float|null $slot slot
+     *
+     * @return self
+     */
+    public function setSlot($slot)
+    {
+        $this->container['slot'] = $slot;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction
+     *
+     * @return object|null
+     */
+    public function getTransaction()
+    {
+        return $this->container['transaction'];
+    }
+
+    /**
+     * Sets transaction
+     *
+     * @param object|null $transaction transaction
+     *
+     * @return self
+     */
+    public function setTransaction($transaction)
+    {
+        $this->container['transaction'] = $transaction;
 
         return $this;
     }

@@ -60,11 +60,9 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'block_time' => 'float',
-        'meta' => 'object',
-        'slot' => 'float',
-        'transaction' => 'object',
-        'network' => 'string'
+        'id' => 'float',
+        'jsonrpc' => 'string',
+        'result' => '\OpenAPI\Client\Model\TransactionResult'
     ];
 
     /**
@@ -75,11 +73,9 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'block_time' => null,
-        'meta' => null,
-        'slot' => null,
-        'transaction' => null,
-        'network' => null
+        'id' => null,
+        'jsonrpc' => null,
+        'result' => null
     ];
 
     /**
@@ -109,11 +105,9 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'block_time' => 'block_time',
-        'meta' => 'meta',
-        'slot' => 'slot',
-        'transaction' => 'transaction',
-        'network' => 'network'
+        'id' => 'id',
+        'jsonrpc' => 'jsonrpc',
+        'result' => 'result'
     ];
 
     /**
@@ -122,11 +116,9 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'block_time' => 'setBlockTime',
-        'meta' => 'setMeta',
-        'slot' => 'setSlot',
-        'transaction' => 'setTransaction',
-        'network' => 'setNetwork'
+        'id' => 'setId',
+        'jsonrpc' => 'setJsonrpc',
+        'result' => 'setResult'
     ];
 
     /**
@@ -135,11 +127,9 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'block_time' => 'getBlockTime',
-        'meta' => 'getMeta',
-        'slot' => 'getSlot',
-        'transaction' => 'getTransaction',
-        'network' => 'getNetwork'
+        'id' => 'getId',
+        'jsonrpc' => 'getJsonrpc',
+        'result' => 'getResult'
     ];
 
     /**
@@ -183,21 +173,6 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    const NETWORK_DEVNET = 'devnet';
-    const NETWORK_MAINNET_BETA = 'mainnet-beta';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getNetworkAllowableValues()
-    {
-        return [
-            self::NETWORK_DEVNET,
-            self::NETWORK_MAINNET_BETA,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -214,11 +189,9 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['block_time'] = $data['block_time'] ?? null;
-        $this->container['meta'] = $data['meta'] ?? null;
-        $this->container['slot'] = $data['slot'] ?? null;
-        $this->container['transaction'] = $data['transaction'] ?? null;
-        $this->container['network'] = $data['network'] ?? 'devnet';
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['jsonrpc'] = $data['jsonrpc'] ?? null;
+        $this->container['result'] = $data['result'] ?? null;
     }
 
     /**
@@ -229,15 +202,6 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getNetworkAllowableValues();
-        if (!is_null($this->container['network']) && !in_array($this->container['network'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'network', must be one of '%s'",
-                $this->container['network'],
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -255,131 +219,73 @@ class Transaction implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets block_time
+     * Gets id
      *
      * @return float|null
      */
-    public function getBlockTime()
+    public function getId()
     {
-        return $this->container['block_time'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets block_time
+     * Sets id
      *
-     * @param float|null $block_time block_time
+     * @param float|null $id id
      *
      * @return self
      */
-    public function setBlockTime($block_time)
+    public function setId($id)
     {
-        $this->container['block_time'] = $block_time;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets meta
-     *
-     * @return object|null
-     */
-    public function getMeta()
-    {
-        return $this->container['meta'];
-    }
-
-    /**
-     * Sets meta
-     *
-     * @param object|null $meta meta
-     *
-     * @return self
-     */
-    public function setMeta($meta)
-    {
-        $this->container['meta'] = $meta;
-
-        return $this;
-    }
-
-    /**
-     * Gets slot
-     *
-     * @return float|null
-     */
-    public function getSlot()
-    {
-        return $this->container['slot'];
-    }
-
-    /**
-     * Sets slot
-     *
-     * @param float|null $slot slot
-     *
-     * @return self
-     */
-    public function setSlot($slot)
-    {
-        $this->container['slot'] = $slot;
-
-        return $this;
-    }
-
-    /**
-     * Gets transaction
-     *
-     * @return object|null
-     */
-    public function getTransaction()
-    {
-        return $this->container['transaction'];
-    }
-
-    /**
-     * Sets transaction
-     *
-     * @param object|null $transaction transaction
-     *
-     * @return self
-     */
-    public function setTransaction($transaction)
-    {
-        $this->container['transaction'] = $transaction;
-
-        return $this;
-    }
-
-    /**
-     * Gets network
+     * Gets jsonrpc
      *
      * @return string|null
      */
-    public function getNetwork()
+    public function getJsonrpc()
     {
-        return $this->container['network'];
+        return $this->container['jsonrpc'];
     }
 
     /**
-     * Sets network
+     * Sets jsonrpc
      *
-     * @param string|null $network network
+     * @param string|null $jsonrpc jsonrpc
      *
      * @return self
      */
-    public function setNetwork($network)
+    public function setJsonrpc($jsonrpc)
     {
-        $allowedValues = $this->getNetworkAllowableValues();
-        if (!is_null($network) && !in_array($network, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'network', must be one of '%s'",
-                    $network,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['network'] = $network;
+        $this->container['jsonrpc'] = $jsonrpc;
+
+        return $this;
+    }
+
+    /**
+     * Gets result
+     *
+     * @return \OpenAPI\Client\Model\TransactionResult|null
+     */
+    public function getResult()
+    {
+        return $this->container['result'];
+    }
+
+    /**
+     * Sets result
+     *
+     * @param \OpenAPI\Client\Model\TransactionResult|null $result result
+     *
+     * @return self
+     */
+    public function setResult($result)
+    {
+        $this->container['result'] = $result;
 
         return $this;
     }

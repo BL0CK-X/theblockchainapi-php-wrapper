@@ -1,6 +1,6 @@
 <?php
 /**
- * GetPublicKeyRequest
+ * GetSPLTokenResponse
  *
  * PHP version 7.3
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * GetPublicKeyRequest Class Doc Comment
+ * GetSPLTokenResponse Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -43,7 +43,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class GetSPLTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetPublicKeyRequest';
+    protected static $openAPIModelName = 'GetSPLTokenResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,11 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'wallet' => '\OpenAPI\Client\Model\Wallet'
+        'decimals' => 'float',
+        'freeze_authority' => 'string',
+        'mint_authority' => 'string',
+        'is_initialized' => 'bool',
+        'supply' => 'string'
     ];
 
     /**
@@ -71,7 +75,11 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'wallet' => null
+        'decimals' => null,
+        'freeze_authority' => null,
+        'mint_authority' => null,
+        'is_initialized' => null,
+        'supply' => null
     ];
 
     /**
@@ -101,7 +109,11 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'wallet' => 'wallet'
+        'decimals' => 'decimals',
+        'freeze_authority' => 'freeze_authority',
+        'mint_authority' => 'mint_authority',
+        'is_initialized' => 'is_initialized',
+        'supply' => 'supply'
     ];
 
     /**
@@ -110,7 +122,11 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'wallet' => 'setWallet'
+        'decimals' => 'setDecimals',
+        'freeze_authority' => 'setFreezeAuthority',
+        'mint_authority' => 'setMintAuthority',
+        'is_initialized' => 'setIsInitialized',
+        'supply' => 'setSupply'
     ];
 
     /**
@@ -119,7 +135,11 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'wallet' => 'getWallet'
+        'decimals' => 'getDecimals',
+        'freeze_authority' => 'getFreezeAuthority',
+        'mint_authority' => 'getMintAuthority',
+        'is_initialized' => 'getIsInitialized',
+        'supply' => 'getSupply'
     ];
 
     /**
@@ -179,7 +199,11 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['wallet'] = $data['wallet'] ?? null;
+        $this->container['decimals'] = $data['decimals'] ?? null;
+        $this->container['freeze_authority'] = $data['freeze_authority'] ?? null;
+        $this->container['mint_authority'] = $data['mint_authority'] ?? null;
+        $this->container['is_initialized'] = $data['is_initialized'] ?? null;
+        $this->container['supply'] = $data['supply'] ?? null;
     }
 
     /**
@@ -191,9 +215,6 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['wallet'] === null) {
-            $invalidProperties[] = "'wallet' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -210,25 +231,121 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets wallet
+     * Gets decimals
      *
-     * @return \OpenAPI\Client\Model\Wallet
+     * @return float|null
      */
-    public function getWallet()
+    public function getDecimals()
     {
-        return $this->container['wallet'];
+        return $this->container['decimals'];
     }
 
     /**
-     * Sets wallet
+     * Sets decimals
      *
-     * @param \OpenAPI\Client\Model\Wallet $wallet wallet
+     * @param float|null $decimals The number of decimals of the token. For example, if the USDC token has 6 decimals, then you need 1 * 10e6 = 1,000,000 tokens to have 1 USDC. The purpose of this is that everything must be stored as  an integer. Thus, if there are $100 USDC in total, there must be $100 * 10e6 tokens in order for the $100 to be divisible into lower denominations than $1.
      *
      * @return self
      */
-    public function setWallet($wallet)
+    public function setDecimals($decimals)
     {
-        $this->container['wallet'] = $wallet;
+        $this->container['decimals'] = $decimals;
+
+        return $this;
+    }
+
+    /**
+     * Gets freeze_authority
+     *
+     * @return string|null
+     */
+    public function getFreezeAuthority()
+    {
+        return $this->container['freeze_authority'];
+    }
+
+    /**
+     * Sets freeze_authority
+     *
+     * @param string|null $freeze_authority Public key address
+     *
+     * @return self
+     */
+    public function setFreezeAuthority($freeze_authority)
+    {
+        $this->container['freeze_authority'] = $freeze_authority;
+
+        return $this;
+    }
+
+    /**
+     * Gets mint_authority
+     *
+     * @return string|null
+     */
+    public function getMintAuthority()
+    {
+        return $this->container['mint_authority'];
+    }
+
+    /**
+     * Sets mint_authority
+     *
+     * @param string|null $mint_authority Public key address
+     *
+     * @return self
+     */
+    public function setMintAuthority($mint_authority)
+    {
+        $this->container['mint_authority'] = $mint_authority;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_initialized
+     *
+     * @return bool|null
+     */
+    public function getIsInitialized()
+    {
+        return $this->container['is_initialized'];
+    }
+
+    /**
+     * Sets is_initialized
+     *
+     * @param bool|null $is_initialized is_initialized
+     *
+     * @return self
+     */
+    public function setIsInitialized($is_initialized)
+    {
+        $this->container['is_initialized'] = $is_initialized;
+
+        return $this;
+    }
+
+    /**
+     * Gets supply
+     *
+     * @return string|null
+     */
+    public function getSupply()
+    {
+        return $this->container['supply'];
+    }
+
+    /**
+     * Sets supply
+     *
+     * @param string|null $supply The supply of the token
+     *
+     * @return self
+     */
+    public function setSupply($supply)
+    {
+        $this->container['supply'] = $supply;
 
         return $this;
     }

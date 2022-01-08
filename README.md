@@ -207,10 +207,13 @@ Class | Method | HTTP request | Description
 *SolanaNFTApi* | [**solanaGetNFTOwner**](docs/Api/SolanaNFTApi.md#solanagetnftowner) | **GET** /solana/nft/{network}/{mint_address}/owner | Get owner of an NFT
 *SolanaNFTApi* | [**solanaGetNFTsCandyMachineId**](docs/Api/SolanaNFTApi.md#solanagetnftscandymachineid) | **POST** /solana/nft/candy_machine_id | Get the ID of the candy machine of an NFT
 *SolanaNFTApi* | [**solanaSearchNFTs**](docs/Api/SolanaNFTApi.md#solanasearchnfts) | **POST** /solana/nft/search | Search NFTs on Solana
+*SolanaSPLTokenApi* | [**solanaGetSPLToken**](docs/Api/SolanaSPLTokenApi.md#solanagetspltoken) | **GET** /solana/spl-token/{network}/{public_key} | Get SPL token metadata
 *SolanaTransactionApi* | [**solanaGetTransaction**](docs/Api/SolanaTransactionApi.md#solanagettransaction) | **GET** /solana/transaction/{network}/{tx_signature} | Get the details of a transaction made on Solana
 *SolanaWalletApi* | [**solanaDeriveAssociatedTokenAccountAddress**](docs/Api/SolanaWalletApi.md#solanaderiveassociatedtokenaccountaddress) | **GET** /solana/wallet/{public_key}/associated_token_account/{mint_address} | Derive an associated token account address
+*SolanaWalletApi* | [**solanaDerivePrivateKey**](docs/Api/SolanaWalletApi.md#solanaderiveprivatekey) | **POST** /solana/wallet/private_key | Derive private key
 *SolanaWalletApi* | [**solanaDerivePublicKey**](docs/Api/SolanaWalletApi.md#solanaderivepublickey) | **POST** /solana/wallet/public_key | Derive public key
-*SolanaWalletApi* | [**solanaGenerateSecretRecoveryPhrase**](docs/Api/SolanaWalletApi.md#solanageneratesecretrecoveryphrase) | **POST** /solana/wallet/secret_recovery_phrase | Generate secret phrase
+*SolanaWalletApi* | [**solanaGeneratePrivateKey**](docs/Api/SolanaWalletApi.md#solanagenerateprivatekey) | **POST** /solana/wallet/generate/private_key | Generate private key
+*SolanaWalletApi* | [**solanaGenerateSecretRecoveryPhrase**](docs/Api/SolanaWalletApi.md#solanageneratesecretrecoveryphrase) | **POST** /solana/wallet/generate/secret_recovery_phrase | Generate secret phrase
 *SolanaWalletApi* | [**solanaGetAirdrop**](docs/Api/SolanaWalletApi.md#solanagetairdrop) | **POST** /solana/wallet/airdrop | Get an airdrop on devnet
 *SolanaWalletApi* | [**solanaGetBalance**](docs/Api/SolanaWalletApi.md#solanagetbalance) | **POST** /solana/wallet/balance | Get wallet&#39;s balance in SOL or any SPL
 *SolanaWalletApi* | [**solanaGetNFTsBelongingToWallet**](docs/Api/SolanaWalletApi.md#solanagetnftsbelongingtowallet) | **GET** /solana/wallet/{network}/{public_key}/nfts | Get address&#39;s NFTs
@@ -226,12 +229,13 @@ Class | Method | HTTP request | Description
 - [AccountIsNFT](docs/Model/AccountIsNFT.md)
 - [AccountValue](docs/Model/AccountValue.md)
 - [AirdropRequest](docs/Model/AirdropRequest.md)
+- [B58PrivateKey](docs/Model/B58PrivateKey.md)
 - [BalanceRequest](docs/Model/BalanceRequest.md)
 - [BalanceResponse](docs/Model/BalanceResponse.md)
 - [CandyMachineSearchRequest](docs/Model/CandyMachineSearchRequest.md)
-- [CandyMachineSearchResponse](docs/Model/CandyMachineSearchResponse.md)
 - [CreateTestCandyMachineRequest](docs/Model/CreateTestCandyMachineRequest.md)
 - [CreateTestCandyMachineResponse](docs/Model/CreateTestCandyMachineResponse.md)
+- [GeneratePrivateKey](docs/Model/GeneratePrivateKey.md)
 - [GetAllNFTsResponse](docs/Model/GetAllNFTsResponse.md)
 - [GetAllNFTsResponseMintedNfts](docs/Model/GetAllNFTsResponseMintedNfts.md)
 - [GetAllNFTsResponseUnmintedNfts](docs/Model/GetAllNFTsResponseUnmintedNfts.md)
@@ -243,6 +247,7 @@ Class | Method | HTTP request | Description
 - [GetCandyMetadataResponseCreators](docs/Model/GetCandyMetadataResponseCreators.md)
 - [GetFileResponse](docs/Model/GetFileResponse.md)
 - [GetPublicKeyRequest](docs/Model/GetPublicKeyRequest.md)
+- [GetSPLTokenResponse](docs/Model/GetSPLTokenResponse.md)
 - [ListNFTsResponse](docs/Model/ListNFTsResponse.md)
 - [MintNFTErrorResponse](docs/Model/MintNFTErrorResponse.md)
 - [MintNFTRequest](docs/Model/MintNFTRequest.md)
@@ -255,12 +260,16 @@ Class | Method | HTTP request | Description
 - [NFTOwnerResponse](docs/Model/NFTOwnerResponse.md)
 - [NFTSearchRequest](docs/Model/NFTSearchRequest.md)
 - [NFTSearchResponse](docs/Model/NFTSearchResponse.md)
+- [PrivateKey](docs/Model/PrivateKey.md)
 - [PublicKey](docs/Model/PublicKey.md)
 - [SecretPhrase](docs/Model/SecretPhrase.md)
+- [SecretRecoveryPhrase](docs/Model/SecretRecoveryPhrase.md)
 - [Transaction](docs/Model/Transaction.md)
+- [TransactionResult](docs/Model/TransactionResult.md)
 - [TransferRequest](docs/Model/TransferRequest.md)
 - [TransferResponse](docs/Model/TransferResponse.md)
 - [UploadFileRequest](docs/Model/UploadFileRequest.md)
+- [Wallet](docs/Model/Wallet.md)
 
 ## Authorization
 

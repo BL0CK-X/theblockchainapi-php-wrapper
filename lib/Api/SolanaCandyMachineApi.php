@@ -1546,7 +1546,7 @@ class SolanaCandyMachineApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\CandyMachineSearchResponse[]
+     * @return string[]
      */
     public function solanaSearchCandyMachines($candy_machine_search_request = null)
     {
@@ -1563,7 +1563,7 @@ class SolanaCandyMachineApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\CandyMachineSearchResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
     public function solanaSearchCandyMachinesWithHttpInfo($candy_machine_search_request = null)
     {
@@ -1606,20 +1606,20 @@ class SolanaCandyMachineApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\CandyMachineSearchResponse[]' === '\SplFileObject') {
+                    if ('string[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CandyMachineSearchResponse[]', []),
+                        ObjectSerializer::deserialize($content, 'string[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\CandyMachineSearchResponse[]';
+            $returnType = 'string[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1637,7 +1637,7 @@ class SolanaCandyMachineApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CandyMachineSearchResponse[]',
+                        'string[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1679,7 +1679,7 @@ class SolanaCandyMachineApi
      */
     public function solanaSearchCandyMachinesAsyncWithHttpInfo($candy_machine_search_request = null)
     {
-        $returnType = '\OpenAPI\Client\Model\CandyMachineSearchResponse[]';
+        $returnType = 'string[]';
         $request = $this->solanaSearchCandyMachinesRequest($candy_machine_search_request);
 
         return $this->client

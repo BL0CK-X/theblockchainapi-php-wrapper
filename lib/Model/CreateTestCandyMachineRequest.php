@@ -60,9 +60,7 @@ class CreateTestCandyMachineRequest implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'secret_recovery_phrase' => 'string',
-        'derivation_path' => 'string',
-        'passphrase' => 'string',
+        'wallet' => '\OpenAPI\Client\Model\Wallet',
         'network' => 'string',
         'candy_machine_contract_version' => 'string',
         'include_gatekeeper' => 'bool'
@@ -76,9 +74,7 @@ class CreateTestCandyMachineRequest implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'secret_recovery_phrase' => null,
-        'derivation_path' => null,
-        'passphrase' => null,
+        'wallet' => null,
         'network' => null,
         'candy_machine_contract_version' => null,
         'include_gatekeeper' => null
@@ -111,9 +107,7 @@ class CreateTestCandyMachineRequest implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'secret_recovery_phrase' => 'secret_recovery_phrase',
-        'derivation_path' => 'derivation_path',
-        'passphrase' => 'passphrase',
+        'wallet' => 'wallet',
         'network' => 'network',
         'candy_machine_contract_version' => 'candy_machine_contract_version',
         'include_gatekeeper' => 'include_gatekeeper'
@@ -125,9 +119,7 @@ class CreateTestCandyMachineRequest implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'secret_recovery_phrase' => 'setSecretRecoveryPhrase',
-        'derivation_path' => 'setDerivationPath',
-        'passphrase' => 'setPassphrase',
+        'wallet' => 'setWallet',
         'network' => 'setNetwork',
         'candy_machine_contract_version' => 'setCandyMachineContractVersion',
         'include_gatekeeper' => 'setIncludeGatekeeper'
@@ -139,9 +131,7 @@ class CreateTestCandyMachineRequest implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'secret_recovery_phrase' => 'getSecretRecoveryPhrase',
-        'derivation_path' => 'getDerivationPath',
-        'passphrase' => 'getPassphrase',
+        'wallet' => 'getWallet',
         'network' => 'getNetwork',
         'candy_machine_contract_version' => 'getCandyMachineContractVersion',
         'include_gatekeeper' => 'getIncludeGatekeeper'
@@ -190,7 +180,6 @@ class CreateTestCandyMachineRequest implements ModelInterface, ArrayAccess, \Jso
 
     const NETWORK_DEVNET = 'devnet';
     const NETWORK_MAINNET_BETA = 'mainnet-beta';
-    const CANDY_MACHINE_CONTRACT_VERSION_V1 = 'v1';
     const CANDY_MACHINE_CONTRACT_VERSION_V2 = 'v2';
 
     /**
@@ -214,7 +203,6 @@ class CreateTestCandyMachineRequest implements ModelInterface, ArrayAccess, \Jso
     public function getCandyMachineContractVersionAllowableValues()
     {
         return [
-            self::CANDY_MACHINE_CONTRACT_VERSION_V1,
             self::CANDY_MACHINE_CONTRACT_VERSION_V2,
         ];
     }
@@ -234,11 +222,9 @@ class CreateTestCandyMachineRequest implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
-        $this->container['secret_recovery_phrase'] = $data['secret_recovery_phrase'] ?? null;
-        $this->container['derivation_path'] = $data['derivation_path'] ?? 'm/44/501/0/0';
-        $this->container['passphrase'] = $data['passphrase'] ?? '';
+        $this->container['wallet'] = $data['wallet'] ?? null;
         $this->container['network'] = $data['network'] ?? 'devnet';
-        $this->container['candy_machine_contract_version'] = $data['candy_machine_contract_version'] ?? 'v1';
+        $this->container['candy_machine_contract_version'] = $data['candy_machine_contract_version'] ?? 'v2';
         $this->container['include_gatekeeper'] = $data['include_gatekeeper'] ?? false;
     }
 
@@ -251,8 +237,8 @@ class CreateTestCandyMachineRequest implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['secret_recovery_phrase'] === null) {
-            $invalidProperties[] = "'secret_recovery_phrase' can't be null";
+        if ($this->container['wallet'] === null) {
+            $invalidProperties[] = "'wallet' can't be null";
         }
         $allowedValues = $this->getNetworkAllowableValues();
         if (!is_null($this->container['network']) && !in_array($this->container['network'], $allowedValues, true)) {
@@ -288,73 +274,25 @@ class CreateTestCandyMachineRequest implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets secret_recovery_phrase
+     * Gets wallet
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\Wallet
      */
-    public function getSecretRecoveryPhrase()
+    public function getWallet()
     {
-        return $this->container['secret_recovery_phrase'];
+        return $this->container['wallet'];
     }
 
     /**
-     * Sets secret_recovery_phrase
+     * Sets wallet
      *
-     * @param string $secret_recovery_phrase The twelve word phrase that can be used to derive many public key addresses. To derive a public key, you need a secret recovery phrase, a derivation path, and an optional passphrase. See our Security section <a href=\"#section/Security\">here</a>.
+     * @param \OpenAPI\Client\Model\Wallet $wallet wallet
      *
      * @return self
      */
-    public function setSecretRecoveryPhrase($secret_recovery_phrase)
+    public function setWallet($wallet)
     {
-        $this->container['secret_recovery_phrase'] = $secret_recovery_phrase;
-
-        return $this;
-    }
-
-    /**
-     * Gets derivation_path
-     *
-     * @return string|null
-     */
-    public function getDerivationPath()
-    {
-        return $this->container['derivation_path'];
-    }
-
-    /**
-     * Sets derivation_path
-     *
-     * @param string|null $derivation_path Derivation paths are used to derive the public key from the secret recovery phrase. Only certain paths are accepted.  We use \"m/44/501/0/0\" by default, if it is not provided. This is the path that the Phantom and Sollet wallets use. If you provide the empty string \"\" as the value for the derivation path, then we will use the Solana CLI default value. The SolFlare recommended path is \"m/44/501/0\".  You can also arbitrarily increment the default path (\"m/44/501/0/0\") to generate more wallets (e.g., \"m/44/501/0/1\", \"m/44/501/0/2\", ...). This is how Phantom generates more wallets.  To learn more about derivation paths, check out <a href=\"https://learnmeabitcoin.com/technical/derivation-paths\" target=\"_blank\">this tutorial</a>.
-     *
-     * @return self
-     */
-    public function setDerivationPath($derivation_path)
-    {
-        $this->container['derivation_path'] = $derivation_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets passphrase
-     *
-     * @return string|null
-     */
-    public function getPassphrase()
-    {
-        return $this->container['passphrase'];
-    }
-
-    /**
-     * Sets passphrase
-     *
-     * @param string|null $passphrase PASSPHRASE != PASSWORD. This is NOT your Phantom password or any other password. It is an optional string you use when creating a wallet. This provides an additional layer of security because a hacker would need both the secret recovery phrase and the passphrase to access the output public key. By default, most wallet UI extensions do not use a passphrase. (You probably did not use a passphrase.) Limited to 500 characters.
-     *
-     * @return self
-     */
-    public function setPassphrase($passphrase)
-    {
-        $this->container['passphrase'] = $passphrase;
+        $this->container['wallet'] = $wallet;
 
         return $this;
     }
@@ -406,7 +344,7 @@ class CreateTestCandyMachineRequest implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets candy_machine_contract_version
      *
-     * @param string|null $candy_machine_contract_version The contract you want to use to create the candy machine
+     * @param string|null $candy_machine_contract_version The contract you want to use to create the candy machine. Note: Metaplex disabled the creation of `v1` candy machines on their smart contract, and so we no longer support the creation of `v1` test candy machines.
      *
      * @return self
      */

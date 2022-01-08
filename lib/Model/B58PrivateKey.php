@@ -1,6 +1,6 @@
 <?php
 /**
- * GetPublicKeyRequest
+ * B58PrivateKey
  *
  * PHP version 7.3
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * GetPublicKeyRequest Class Doc Comment
+ * B58PrivateKey Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -43,7 +43,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class B58PrivateKey implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetPublicKeyRequest';
+    protected static $openAPIModelName = 'B58PrivateKey';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'wallet' => '\OpenAPI\Client\Model\Wallet'
+        'b58_private_key' => 'string'
     ];
 
     /**
@@ -71,7 +71,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'wallet' => null
+        'b58_private_key' => null
     ];
 
     /**
@@ -101,7 +101,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'wallet' => 'wallet'
+        'b58_private_key' => 'b58_private_key'
     ];
 
     /**
@@ -110,7 +110,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'wallet' => 'setWallet'
+        'b58_private_key' => 'setB58PrivateKey'
     ];
 
     /**
@@ -119,7 +119,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'wallet' => 'getWallet'
+        'b58_private_key' => 'getB58PrivateKey'
     ];
 
     /**
@@ -179,7 +179,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['wallet'] = $data['wallet'] ?? null;
+        $this->container['b58_private_key'] = $data['b58_private_key'] ?? null;
     }
 
     /**
@@ -191,8 +191,8 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['wallet'] === null) {
-            $invalidProperties[] = "'wallet' can't be null";
+        if ($this->container['b58_private_key'] === null) {
+            $invalidProperties[] = "'b58_private_key' can't be null";
         }
         return $invalidProperties;
     }
@@ -210,25 +210,25 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets wallet
+     * Gets b58_private_key
      *
-     * @return \OpenAPI\Client\Model\Wallet
+     * @return string
      */
-    public function getWallet()
+    public function getB58PrivateKey()
     {
-        return $this->container['wallet'];
+        return $this->container['b58_private_key'];
     }
 
     /**
-     * Sets wallet
+     * Sets b58_private_key
      *
-     * @param \OpenAPI\Client\Model\Wallet $wallet wallet
+     * @param string $b58_private_key A private key corresponds to exactly one public key address. A private key can be used to move assets out of the wallet and sign transaction with the corresponding public key.  A base58-encoded private key is a base58-encoded version of the typical private key. It is represented as a string (e.g., `4waBTVeAVWEAczSdx36uMrR19668ACgQDs7r386vrUes3UCzvXCQ2FPSCVGb1zJrwcULgpNzgABreyQaWSpGBwfx`).  <a href=\"https://phantom.app\" target=\"_blank\">Phantom</a> is a popular wallet interface on Solana that allows you to export your private key in this format.
      *
      * @return self
      */
-    public function setWallet($wallet)
+    public function setB58PrivateKey($b58_private_key)
     {
-        $this->container['wallet'] = $wallet;
+        $this->container['b58_private_key'] = $b58_private_key;
 
         return $this;
     }

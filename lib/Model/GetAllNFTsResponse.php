@@ -62,7 +62,8 @@ class GetAllNFTsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'minted_nfts' => '\OpenAPI\Client\Model\GetAllNFTsResponseMintedNfts[]',
         'unminted_nfts' => '\OpenAPI\Client\Model\GetAllNFTsResponseUnmintedNfts[]',
-        'all_nfts' => '\OpenAPI\Client\Model\GetAllNFTsResponseUnmintedNfts[]'
+        'all_nfts' => '\OpenAPI\Client\Model\GetAllNFTsResponseUnmintedNfts[]',
+        'accurate' => 'bool'
     ];
 
     /**
@@ -75,7 +76,8 @@ class GetAllNFTsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'minted_nfts' => null,
         'unminted_nfts' => null,
-        'all_nfts' => null
+        'all_nfts' => null,
+        'accurate' => null
     ];
 
     /**
@@ -107,7 +109,8 @@ class GetAllNFTsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $attributeMap = [
         'minted_nfts' => 'minted_nfts',
         'unminted_nfts' => 'unminted_nfts',
-        'all_nfts' => 'all_nfts'
+        'all_nfts' => 'all_nfts',
+        'accurate' => 'accurate'
     ];
 
     /**
@@ -118,7 +121,8 @@ class GetAllNFTsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $setters = [
         'minted_nfts' => 'setMintedNfts',
         'unminted_nfts' => 'setUnmintedNfts',
-        'all_nfts' => 'setAllNfts'
+        'all_nfts' => 'setAllNfts',
+        'accurate' => 'setAccurate'
     ];
 
     /**
@@ -129,7 +133,8 @@ class GetAllNFTsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $getters = [
         'minted_nfts' => 'getMintedNfts',
         'unminted_nfts' => 'getUnmintedNfts',
-        'all_nfts' => 'getAllNfts'
+        'all_nfts' => 'getAllNfts',
+        'accurate' => 'getAccurate'
     ];
 
     /**
@@ -192,6 +197,7 @@ class GetAllNFTsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->container['minted_nfts'] = $data['minted_nfts'] ?? null;
         $this->container['unminted_nfts'] = $data['unminted_nfts'] ?? null;
         $this->container['all_nfts'] = $data['all_nfts'] ?? null;
+        $this->container['accurate'] = $data['accurate'] ?? null;
     }
 
     /**
@@ -286,6 +292,30 @@ class GetAllNFTsResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setAllNfts($all_nfts)
     {
         $this->container['all_nfts'] = $all_nfts;
+
+        return $this;
+    }
+
+    /**
+     * Gets accurate
+     *
+     * @return bool|null
+     */
+    public function getAccurate()
+    {
+        return $this->container['accurate'];
+    }
+
+    /**
+     * Sets accurate
+     *
+     * @param bool|null $accurate Whether or not the division of NFTs among minted and unminted is accurate. If it is not accurate, then it is possible that NFTs have been included in the `minted` list that are not actually minted. If it is accurate, then the split of  minted and unminted is correct. `v1` candy machines always return a correct minted/unminted split.
+     *
+     * @return self
+     */
+    public function setAccurate($accurate)
+    {
+        $this->container['accurate'] = $accurate;
 
         return $this;
     }

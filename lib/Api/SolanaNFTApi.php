@@ -1553,7 +1553,7 @@ class SolanaNFTApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\NFTSearchResponse
+     * @return \OpenAPI\Client\Model\NFTSearchResponse[]
      */
     public function solanaSearchNFTs($nft_search_request = null)
     {
@@ -1570,7 +1570,7 @@ class SolanaNFTApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\NFTSearchResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\NFTSearchResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function solanaSearchNFTsWithHttpInfo($nft_search_request = null)
     {
@@ -1613,20 +1613,20 @@ class SolanaNFTApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\NFTSearchResponse' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\NFTSearchResponse[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NFTSearchResponse', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NFTSearchResponse[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\NFTSearchResponse';
+            $returnType = '\OpenAPI\Client\Model\NFTSearchResponse[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1644,7 +1644,7 @@ class SolanaNFTApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\NFTSearchResponse',
+                        '\OpenAPI\Client\Model\NFTSearchResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1686,7 +1686,7 @@ class SolanaNFTApi
      */
     public function solanaSearchNFTsAsyncWithHttpInfo($nft_search_request = null)
     {
-        $returnType = '\OpenAPI\Client\Model\NFTSearchResponse';
+        $returnType = '\OpenAPI\Client\Model\NFTSearchResponse[]';
         $request = $this->solanaSearchNFTsRequest($nft_search_request);
 
         return $this->client

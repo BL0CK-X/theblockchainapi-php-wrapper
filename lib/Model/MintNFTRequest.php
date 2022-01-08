@@ -60,10 +60,8 @@ class MintNFTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'wallet' => '\OpenAPI\Client\Model\Wallet',
         'config_address' => 'string',
-        'secret_recovery_phrase' => 'string',
-        'derivation_path' => 'string',
-        'passphrase' => 'string',
         'network' => 'string',
         'candy_machine_contract_version' => 'string'
     ];
@@ -76,10 +74,8 @@ class MintNFTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'wallet' => null,
         'config_address' => null,
-        'secret_recovery_phrase' => null,
-        'derivation_path' => null,
-        'passphrase' => null,
         'network' => null,
         'candy_machine_contract_version' => null
     ];
@@ -111,10 +107,8 @@ class MintNFTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'wallet' => 'wallet',
         'config_address' => 'config_address',
-        'secret_recovery_phrase' => 'secret_recovery_phrase',
-        'derivation_path' => 'derivation_path',
-        'passphrase' => 'passphrase',
         'network' => 'network',
         'candy_machine_contract_version' => 'candy_machine_contract_version'
     ];
@@ -125,10 +119,8 @@ class MintNFTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'wallet' => 'setWallet',
         'config_address' => 'setConfigAddress',
-        'secret_recovery_phrase' => 'setSecretRecoveryPhrase',
-        'derivation_path' => 'setDerivationPath',
-        'passphrase' => 'setPassphrase',
         'network' => 'setNetwork',
         'candy_machine_contract_version' => 'setCandyMachineContractVersion'
     ];
@@ -139,10 +131,8 @@ class MintNFTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'wallet' => 'getWallet',
         'config_address' => 'getConfigAddress',
-        'secret_recovery_phrase' => 'getSecretRecoveryPhrase',
-        'derivation_path' => 'getDerivationPath',
-        'passphrase' => 'getPassphrase',
         'network' => 'getNetwork',
         'candy_machine_contract_version' => 'getCandyMachineContractVersion'
     ];
@@ -234,10 +224,8 @@ class MintNFTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->container['wallet'] = $data['wallet'] ?? null;
         $this->container['config_address'] = $data['config_address'] ?? null;
-        $this->container['secret_recovery_phrase'] = $data['secret_recovery_phrase'] ?? null;
-        $this->container['derivation_path'] = $data['derivation_path'] ?? 'm/44/501/0/0';
-        $this->container['passphrase'] = $data['passphrase'] ?? '';
         $this->container['network'] = $data['network'] ?? 'devnet';
         $this->container['candy_machine_contract_version'] = $data['candy_machine_contract_version'] ?? 'v1';
     }
@@ -251,11 +239,11 @@ class MintNFTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['wallet'] === null) {
+            $invalidProperties[] = "'wallet' can't be null";
+        }
         if ($this->container['config_address'] === null) {
             $invalidProperties[] = "'config_address' can't be null";
-        }
-        if ($this->container['secret_recovery_phrase'] === null) {
-            $invalidProperties[] = "'secret_recovery_phrase' can't be null";
         }
         $allowedValues = $this->getNetworkAllowableValues();
         if (!is_null($this->container['network']) && !in_array($this->container['network'], $allowedValues, true)) {
@@ -291,6 +279,30 @@ class MintNFTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets wallet
+     *
+     * @return \OpenAPI\Client\Model\Wallet
+     */
+    public function getWallet()
+    {
+        return $this->container['wallet'];
+    }
+
+    /**
+     * Sets wallet
+     *
+     * @param \OpenAPI\Client\Model\Wallet $wallet wallet
+     *
+     * @return self
+     */
+    public function setWallet($wallet)
+    {
+        $this->container['wallet'] = $wallet;
+
+        return $this;
+    }
+
+    /**
      * Gets config_address
      *
      * @return string
@@ -303,85 +315,13 @@ class MintNFTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets config_address
      *
-     * @param string $config_address The config address of the candy machine. You can retrieve this if you have the candy machine ID using <a href=\"#operation/solanaGetCandyMachineDetails\">this endpoint</a> and retrieving the `config_address` from the response..
+     * @param string $config_address The config address of the candy machine. You can retrieve this if you have the candy machine ID using <a href=\"#operation/solanaGetCandyMachineDetails\">this endpoint</a> and retrieving the `config_address` from the response.  A candy machine ID is the same thing as a configuration address for v2 candy machines.
      *
      * @return self
      */
     public function setConfigAddress($config_address)
     {
         $this->container['config_address'] = $config_address;
-
-        return $this;
-    }
-
-    /**
-     * Gets secret_recovery_phrase
-     *
-     * @return string
-     */
-    public function getSecretRecoveryPhrase()
-    {
-        return $this->container['secret_recovery_phrase'];
-    }
-
-    /**
-     * Sets secret_recovery_phrase
-     *
-     * @param string $secret_recovery_phrase The twelve word phrase that can be used to derive many public key addresses. To derive a public key, you need a secret recovery phrase, a derivation path, and an optional passphrase. See our Security section <a href=\"#section/Security\">here</a>.
-     *
-     * @return self
-     */
-    public function setSecretRecoveryPhrase($secret_recovery_phrase)
-    {
-        $this->container['secret_recovery_phrase'] = $secret_recovery_phrase;
-
-        return $this;
-    }
-
-    /**
-     * Gets derivation_path
-     *
-     * @return string|null
-     */
-    public function getDerivationPath()
-    {
-        return $this->container['derivation_path'];
-    }
-
-    /**
-     * Sets derivation_path
-     *
-     * @param string|null $derivation_path Derivation paths are used to derive the public key from the secret recovery phrase. Only certain paths are accepted.  We use \"m/44/501/0/0\" by default, if it is not provided. This is the path that the Phantom and Sollet wallets use. If you provide the empty string \"\" as the value for the derivation path, then we will use the Solana CLI default value. The SolFlare recommended path is \"m/44/501/0\".  You can also arbitrarily increment the default path (\"m/44/501/0/0\") to generate more wallets (e.g., \"m/44/501/0/1\", \"m/44/501/0/2\", ...). This is how Phantom generates more wallets.  To learn more about derivation paths, check out <a href=\"https://learnmeabitcoin.com/technical/derivation-paths\" target=\"_blank\">this tutorial</a>.
-     *
-     * @return self
-     */
-    public function setDerivationPath($derivation_path)
-    {
-        $this->container['derivation_path'] = $derivation_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets passphrase
-     *
-     * @return string|null
-     */
-    public function getPassphrase()
-    {
-        return $this->container['passphrase'];
-    }
-
-    /**
-     * Sets passphrase
-     *
-     * @param string|null $passphrase PASSPHRASE != PASSWORD. This is NOT your Phantom password or any other password. It is an optional string you use when creating a wallet. This provides an additional layer of security because a hacker would need both the secret recovery phrase and the passphrase to access the output public key. By default, most wallet UI extensions do not use a passphrase. (You probably did not use a passphrase.) Limited to 500 characters.
-     *
-     * @return self
-     */
-    public function setPassphrase($passphrase)
-    {
-        $this->container['passphrase'] = $passphrase;
 
         return $this;
     }

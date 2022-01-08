@@ -1,6 +1,6 @@
 <?php
 /**
- * GetPublicKeyRequest
+ * SecretRecoveryPhrase
  *
  * PHP version 7.3
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * GetPublicKeyRequest Class Doc Comment
+ * SecretRecoveryPhrase Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -43,7 +43,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class SecretRecoveryPhrase implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetPublicKeyRequest';
+    protected static $openAPIModelName = 'SecretRecoveryPhrase';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,9 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'wallet' => '\OpenAPI\Client\Model\Wallet'
+        'secret_recovery_phrase' => 'string',
+        'derivation_path' => 'string',
+        'passphrase' => 'string'
     ];
 
     /**
@@ -71,7 +73,9 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'wallet' => null
+        'secret_recovery_phrase' => null,
+        'derivation_path' => null,
+        'passphrase' => null
     ];
 
     /**
@@ -101,7 +105,9 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'wallet' => 'wallet'
+        'secret_recovery_phrase' => 'secret_recovery_phrase',
+        'derivation_path' => 'derivation_path',
+        'passphrase' => 'passphrase'
     ];
 
     /**
@@ -110,7 +116,9 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'wallet' => 'setWallet'
+        'secret_recovery_phrase' => 'setSecretRecoveryPhrase',
+        'derivation_path' => 'setDerivationPath',
+        'passphrase' => 'setPassphrase'
     ];
 
     /**
@@ -119,7 +127,9 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'wallet' => 'getWallet'
+        'secret_recovery_phrase' => 'getSecretRecoveryPhrase',
+        'derivation_path' => 'getDerivationPath',
+        'passphrase' => 'getPassphrase'
     ];
 
     /**
@@ -179,7 +189,9 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['wallet'] = $data['wallet'] ?? null;
+        $this->container['secret_recovery_phrase'] = $data['secret_recovery_phrase'] ?? null;
+        $this->container['derivation_path'] = $data['derivation_path'] ?? 'm/44/501/0/0';
+        $this->container['passphrase'] = $data['passphrase'] ?? '';
     }
 
     /**
@@ -191,8 +203,8 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['wallet'] === null) {
-            $invalidProperties[] = "'wallet' can't be null";
+        if ($this->container['secret_recovery_phrase'] === null) {
+            $invalidProperties[] = "'secret_recovery_phrase' can't be null";
         }
         return $invalidProperties;
     }
@@ -210,25 +222,73 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets wallet
+     * Gets secret_recovery_phrase
      *
-     * @return \OpenAPI\Client\Model\Wallet
+     * @return string
      */
-    public function getWallet()
+    public function getSecretRecoveryPhrase()
     {
-        return $this->container['wallet'];
+        return $this->container['secret_recovery_phrase'];
     }
 
     /**
-     * Sets wallet
+     * Sets secret_recovery_phrase
      *
-     * @param \OpenAPI\Client\Model\Wallet $wallet wallet
+     * @param string $secret_recovery_phrase The twelve word phrase that can be used to derive many public key addresses (e.g., bottom army bless castle alter habit dish embody child flame smooth zone).  To derive a public key, you need a secret recovery phrase, a derivation path, and an optional passphrase.   Alternatively, you can derive a public key with a private key.
      *
      * @return self
      */
-    public function setWallet($wallet)
+    public function setSecretRecoveryPhrase($secret_recovery_phrase)
     {
-        $this->container['wallet'] = $wallet;
+        $this->container['secret_recovery_phrase'] = $secret_recovery_phrase;
+
+        return $this;
+    }
+
+    /**
+     * Gets derivation_path
+     *
+     * @return string|null
+     */
+    public function getDerivationPath()
+    {
+        return $this->container['derivation_path'];
+    }
+
+    /**
+     * Sets derivation_path
+     *
+     * @param string|null $derivation_path Derivation paths are used to derive the public key from the secret recovery phrase. Only certain paths are accepted.  If you provide the empty string \"\" as the value for the derivation path, then we will derive your public key with the same behavior as the default behavior of the Solana CLI.  By default, we use \"m/44/501/0/0\". This is the path that the Phantom and Sollet wallets use.  You can also arbitrarily increment the default path (\"m/44/501/0/0\") to generate more wallets (e.g., \"m/44/501/0/1\", \"m/44/501/0/2\", ... AND/OR \"m/44/501/1/0\", \"m/44/501/2/0\", ...).  Phantom's Wallet increments the first digit (e.g., \"m/44/501/0/0\", \"m/44/501/1/0\", \"m/44/501/2/0\", ...) to generate more public key addresses.  The SolFlare recommended path is \"m/44/501/0\".  To learn more about derivation paths, check out <a href=\"https://learnmeabitcoin.com/technical/derivation-paths\" target=\"_blank\">this tutorial</a>.
+     *
+     * @return self
+     */
+    public function setDerivationPath($derivation_path)
+    {
+        $this->container['derivation_path'] = $derivation_path;
+
+        return $this;
+    }
+
+    /**
+     * Gets passphrase
+     *
+     * @return string|null
+     */
+    public function getPassphrase()
+    {
+        return $this->container['passphrase'];
+    }
+
+    /**
+     * Sets passphrase
+     *
+     * @param string|null $passphrase PASSPHRASE != PASSWORD. This is NOT your Phantom password or any other password. It is an optional string you use when creating a wallet. This provides an additional layer of security because a hacker would need both the secret recovery phrase and the passphrase to access the output public key. By default, most wallet UI extensions do not use a passphrase. (You probably did not use a passphrase.) Limited to 500 characters.
+     *
+     * @return self
+     */
+    public function setPassphrase($passphrase)
+    {
+        $this->container['passphrase'] = $passphrase;
 
         return $this;
     }

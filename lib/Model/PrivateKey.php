@@ -1,6 +1,6 @@
 <?php
 /**
- * GetPublicKeyRequest
+ * PrivateKey
  *
  * PHP version 7.3
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * GetPublicKeyRequest Class Doc Comment
+ * PrivateKey Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -43,7 +43,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class PrivateKey implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetPublicKeyRequest';
+    protected static $openAPIModelName = 'PrivateKey';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'wallet' => '\OpenAPI\Client\Model\Wallet'
+        'private_key' => 'object'
     ];
 
     /**
@@ -71,7 +71,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'wallet' => null
+        'private_key' => null
     ];
 
     /**
@@ -101,7 +101,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'wallet' => 'wallet'
+        'private_key' => 'private_key'
     ];
 
     /**
@@ -110,7 +110,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'wallet' => 'setWallet'
+        'private_key' => 'setPrivateKey'
     ];
 
     /**
@@ -119,7 +119,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'wallet' => 'getWallet'
+        'private_key' => 'getPrivateKey'
     ];
 
     /**
@@ -179,7 +179,7 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['wallet'] = $data['wallet'] ?? null;
+        $this->container['private_key'] = $data['private_key'] ?? null;
     }
 
     /**
@@ -191,8 +191,8 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['wallet'] === null) {
-            $invalidProperties[] = "'wallet' can't be null";
+        if ($this->container['private_key'] === null) {
+            $invalidProperties[] = "'private_key' can't be null";
         }
         return $invalidProperties;
     }
@@ -210,25 +210,25 @@ class GetPublicKeyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets wallet
+     * Gets private_key
      *
-     * @return \OpenAPI\Client\Model\Wallet
+     * @return object
      */
-    public function getWallet()
+    public function getPrivateKey()
     {
-        return $this->container['wallet'];
+        return $this->container['private_key'];
     }
 
     /**
-     * Sets wallet
+     * Sets private_key
      *
-     * @param \OpenAPI\Client\Model\Wallet $wallet wallet
+     * @param object $private_key A private key corresponds to exactly one public key address. A private key can be used to move assets out of the wallet and sign transaction with the corresponding public key.  A private key is an array of integers (e.g.,   `[185,108,153,165,57,193,166,167,58,148,133,121,92,252,242,13,233,246,35,103,185,20,27,56,111,169,12,50,50,36,83,156,173,195,143,75,135,78,204,129,217,231,58,129,69,180,185,86,119,43,200,193,94,112,31,135,68,128,207,26,85,150,68,181]`).  <a href=\"https://solflare.com\" target=\"_blank\">Solflare</a> is a popular wallet interface on Solana that allows you to export your private key in this format.
      *
      * @return self
      */
-    public function setWallet($wallet)
+    public function setPrivateKey($private_key)
     {
-        $this->container['wallet'] = $wallet;
+        $this->container['private_key'] = $private_key;
 
         return $this;
     }

@@ -60,9 +60,7 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'secret_recovery_phrase' => 'string',
-        'derivation_path' => 'string',
-        'passphrase' => 'string',
+        'wallet' => '\OpenAPI\Client\Model\Wallet',
         'nft_name' => 'string',
         'nft_symbol' => 'string',
         'nft_description' => 'string',
@@ -74,6 +72,7 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'seller_fee_basis_points' => 'float',
         'creators' => 'string[]',
         'share' => 'int[]',
+        'mint_to_public_key' => 'string',
         'network' => 'string'
     ];
 
@@ -85,9 +84,7 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'secret_recovery_phrase' => null,
-        'derivation_path' => null,
-        'passphrase' => null,
+        'wallet' => null,
         'nft_name' => null,
         'nft_symbol' => null,
         'nft_description' => null,
@@ -99,6 +96,7 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'seller_fee_basis_points' => null,
         'creators' => null,
         'share' => null,
+        'mint_to_public_key' => null,
         'network' => null
     ];
 
@@ -129,9 +127,7 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'secret_recovery_phrase' => 'secret_recovery_phrase',
-        'derivation_path' => 'derivation_path',
-        'passphrase' => 'passphrase',
+        'wallet' => 'wallet',
         'nft_name' => 'nft_name',
         'nft_symbol' => 'nft_symbol',
         'nft_description' => 'nft_description',
@@ -143,6 +139,7 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'seller_fee_basis_points' => 'seller_fee_basis_points',
         'creators' => 'creators',
         'share' => 'share',
+        'mint_to_public_key' => 'mint_to_public_key',
         'network' => 'network'
     ];
 
@@ -152,9 +149,7 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'secret_recovery_phrase' => 'setSecretRecoveryPhrase',
-        'derivation_path' => 'setDerivationPath',
-        'passphrase' => 'setPassphrase',
+        'wallet' => 'setWallet',
         'nft_name' => 'setNftName',
         'nft_symbol' => 'setNftSymbol',
         'nft_description' => 'setNftDescription',
@@ -166,6 +161,7 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'seller_fee_basis_points' => 'setSellerFeeBasisPoints',
         'creators' => 'setCreators',
         'share' => 'setShare',
+        'mint_to_public_key' => 'setMintToPublicKey',
         'network' => 'setNetwork'
     ];
 
@@ -175,9 +171,7 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'secret_recovery_phrase' => 'getSecretRecoveryPhrase',
-        'derivation_path' => 'getDerivationPath',
-        'passphrase' => 'getPassphrase',
+        'wallet' => 'getWallet',
         'nft_name' => 'getNftName',
         'nft_symbol' => 'getNftSymbol',
         'nft_description' => 'getNftDescription',
@@ -189,6 +183,7 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         'seller_fee_basis_points' => 'getSellerFeeBasisPoints',
         'creators' => 'getCreators',
         'share' => 'getShare',
+        'mint_to_public_key' => 'getMintToPublicKey',
         'network' => 'getNetwork'
     ];
 
@@ -279,9 +274,7 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['secret_recovery_phrase'] = $data['secret_recovery_phrase'] ?? null;
-        $this->container['derivation_path'] = $data['derivation_path'] ?? 'm/44/501/0/0';
-        $this->container['passphrase'] = $data['passphrase'] ?? '';
+        $this->container['wallet'] = $data['wallet'] ?? null;
         $this->container['nft_name'] = $data['nft_name'] ?? '';
         $this->container['nft_symbol'] = $data['nft_symbol'] ?? '';
         $this->container['nft_description'] = $data['nft_description'] ?? '';
@@ -293,6 +286,7 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['seller_fee_basis_points'] = $data['seller_fee_basis_points'] ?? 0;
         $this->container['creators'] = $data['creators'] ?? null;
         $this->container['share'] = $data['share'] ?? null;
+        $this->container['mint_to_public_key'] = $data['mint_to_public_key'] ?? 'The public key of the wallet provided';
         $this->container['network'] = $data['network'] ?? 'devnet';
     }
 
@@ -305,8 +299,8 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['secret_recovery_phrase'] === null) {
-            $invalidProperties[] = "'secret_recovery_phrase' can't be null";
+        if ($this->container['wallet'] === null) {
+            $invalidProperties[] = "'wallet' can't be null";
         }
         $allowedValues = $this->getNftUploadMethodAllowableValues();
         if (!is_null($this->container['nft_upload_method']) && !in_array($this->container['nft_upload_method'], $allowedValues, true)) {
@@ -342,73 +336,25 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets secret_recovery_phrase
+     * Gets wallet
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\Wallet
      */
-    public function getSecretRecoveryPhrase()
+    public function getWallet()
     {
-        return $this->container['secret_recovery_phrase'];
+        return $this->container['wallet'];
     }
 
     /**
-     * Sets secret_recovery_phrase
+     * Sets wallet
      *
-     * @param string $secret_recovery_phrase The twelve word phrase that can be used to derive many public key addresses. To derive a public key, you need a secret recovery phrase, a derivation path, and an optional passphrase. See our Security section <a href=\"#section/Security\">here</a>.
+     * @param \OpenAPI\Client\Model\Wallet $wallet wallet
      *
      * @return self
      */
-    public function setSecretRecoveryPhrase($secret_recovery_phrase)
+    public function setWallet($wallet)
     {
-        $this->container['secret_recovery_phrase'] = $secret_recovery_phrase;
-
-        return $this;
-    }
-
-    /**
-     * Gets derivation_path
-     *
-     * @return string|null
-     */
-    public function getDerivationPath()
-    {
-        return $this->container['derivation_path'];
-    }
-
-    /**
-     * Sets derivation_path
-     *
-     * @param string|null $derivation_path Derivation paths are used to derive the public key from the secret recovery phrase. Only certain paths are accepted.  We use \"m/44/501/0/0\" by default, if it is not provided. This is the path that the Phantom and Sollet wallets use. If you provide the empty string \"\" as the value for the derivation path, then we will use the Solana CLI default value. The SolFlare recommended path is \"m/44/501/0\".  You can also arbitrarily increment the default path (\"m/44/501/0/0\") to generate more wallets (e.g., \"m/44/501/0/1\", \"m/44/501/0/2\", ...). This is how Phantom generates more wallets.  To learn more about derivation paths, check out <a href=\"https://learnmeabitcoin.com/technical/derivation-paths\" target=\"_blank\">this tutorial</a>.
-     *
-     * @return self
-     */
-    public function setDerivationPath($derivation_path)
-    {
-        $this->container['derivation_path'] = $derivation_path;
-
-        return $this;
-    }
-
-    /**
-     * Gets passphrase
-     *
-     * @return string|null
-     */
-    public function getPassphrase()
-    {
-        return $this->container['passphrase'];
-    }
-
-    /**
-     * Sets passphrase
-     *
-     * @param string|null $passphrase PASSPHRASE != PASSWORD. This is NOT your Phantom password or any other password. It is an optional string you use when creating a wallet. This provides an additional layer of security because a hacker would need both the secret recovery phrase and the passphrase to access the output public key. By default, most wallet UI extensions do not use a passphrase. (You probably did not use a passphrase.) Limited to 500 characters.
-     *
-     * @return self
-     */
-    public function setPassphrase($passphrase)
-    {
-        $this->container['passphrase'] = $passphrase;
+        $this->container['wallet'] = $wallet;
 
         return $this;
     }
@@ -683,6 +629,30 @@ class NFTMintRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setShare($share)
     {
         $this->container['share'] = $share;
+
+        return $this;
+    }
+
+    /**
+     * Gets mint_to_public_key
+     *
+     * @return string|null
+     */
+    public function getMintToPublicKey()
+    {
+        return $this->container['mint_to_public_key'];
+    }
+
+    /**
+     * Sets mint_to_public_key
+     *
+     * @param string|null $mint_to_public_key Assign ownership of the NFT to the public key address given by `mint_to_public_key`
+     *
+     * @return self
+     */
+    public function setMintToPublicKey($mint_to_public_key)
+    {
+        $this->container['mint_to_public_key'] = $mint_to_public_key;
 
         return $this;
     }
