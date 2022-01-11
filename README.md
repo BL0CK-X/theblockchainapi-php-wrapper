@@ -10,11 +10,11 @@ You're a key part of our vision. We love feature requests! <a href=\"#section/Fe
 
 To use the API, you simply need to create an API key pair.
 
-Doing so takes less than a minute. Simply go to <a target=\"_blank\" href=\"https://dashboard.theblockchainapi.com\">the dashboard</a>, create an account, and generate a key pair. You can now use this pair to make API requests. You must create your first pair via the dashboard.
+Doing so takes less than a minute. Simply go to <a target=\"_blank\" href=\"https://dashboard.blockchainapi.com\">the dashboard</a>, create an account, and generate a key pair. You can now use this pair to make API requests. You must create your first pair via the dashboard.
 
 # Feature Requests
 
-Got a feature request? Submit it as an issue on <a target=\"_blank\" href=\"https://github.com/BL0CK-X/the-blockchain-api/issues/new/choose\">our GitHub repo</a> or [email us](mailto:info@theblockchainapi.com).
+Got a feature request? Submit it as an issue on <a target=\"_blank\" href=\"https://github.com/BL0CK-X/the-blockchain-api/issues/new/choose\">our GitHub repo</a> or [email us](mailto:info@blockchainapi.com).
 
 # Contact
 
@@ -25,7 +25,7 @@ Got a feature request? Submit it as an issue on <a target=\"_blank\" href=\"http
         src=\"https://theblockchainapi-docs.s3.amazonaws.com/icons/phone.svg\"
     />
     <figcaption style=\"textAlign:center;\">Text / Call: +1 (415) 888 4745 </figcaption>
-</figure> <a href=\"mailto:info@theblockchainapi.com\" target=\"_blank\">
+</figure> <a href=\"mailto:info@blockchainapi.com\" target=\"_blank\">
     <figure>
         <img 
             width=\"40px\"
@@ -81,7 +81,7 @@ Note: We have had a couple of individuals harrass and threaten us. These individ
 
 <b>Each user receives 500 free credits.</b>
 
-You can learn more about our pricing <a href=\"https://dashboard.theblockchainapi.com/billing\" target=\"_blank\">here</a>. 
+You can learn more about our pricing <a href=\"https://dashboard.blockchainapi.com/billing\" target=\"_blank\">here</a>. 
 
 We frequently do custom plans. If our pricing doesn't work for you, <a href=\"#section/Contact\">contact us</a>.
 
@@ -187,7 +187,7 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *https://api.theblockchainapi.com/v1*
+All URIs are relative to *https://api.blockchainapi.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -299,7 +299,7 @@ vendor/bin/phpunit
 
 ## Author
 
-info@theblockchainapi.com
+info@blockchainapi.com
 
 ## About this package
 

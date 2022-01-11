@@ -1,6 +1,6 @@
 # OpenAPI\Client\SolanaNFTApi
 
-All URIs are relative to https://api.theblockchainapi.com/v1.
+All URIs are relative to https://api.blockchainapi.com/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
