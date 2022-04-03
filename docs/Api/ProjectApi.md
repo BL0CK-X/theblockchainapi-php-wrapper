@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 ## `createProjectVersion()`
 
 ```php
-createProjectVersion($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2): \OpenAPI\Client\Model\Project
+createProjectVersion($project_id, $version): \OpenAPI\Client\Model\Project
 ```
 
 Create a new project version
@@ -118,11 +118,11 @@ $apiInstance = new OpenAPI\Client\Api\ProjectApi(
     new GuzzleHttp\Client(),
     $config
 );
-$UNKNOWN_PARAMETER_NAME = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; //  | The ID of the project. Created and returned when a project is created.
-$UNKNOWN_PARAMETER_NAME2 = 2; //  | The version of the project.
+$project_id = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; // string | The ID of the project. Created and returned when a project is created.
+$version = 2; // string | The version of the project.
 
 try {
-    $result = $apiInstance->createProjectVersion($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2);
+    $result = $apiInstance->createProjectVersion($project_id, $version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectApi->createProjectVersion: ', $e->getMessage(), PHP_EOL;
@@ -133,8 +133,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_PARAMETER_NAME** | [****](../Model/.md)| The ID of the project. Created and returned when a project is created. |
- **UNKNOWN_PARAMETER_NAME2** | [****](../Model/.md)| The version of the project. |
+ **project_id** | **string**| The ID of the project. Created and returned when a project is created. |
+ **version** | **string**| The version of the project. |
 
 ### Return type
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 ## `deleteProject()`
 
 ```php
-deleteProject($UNKNOWN_PARAMETER_NAME)
+deleteProject($project_id)
 ```
 
 Delete a project
@@ -187,10 +187,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectApi(
     new GuzzleHttp\Client(),
     $config
 );
-$UNKNOWN_PARAMETER_NAME = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; //  | The ID of the project. Created and returned when a project is created.
+$project_id = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; // string | The ID of the project. Created and returned when a project is created.
 
 try {
-    $apiInstance->deleteProject($UNKNOWN_PARAMETER_NAME);
+    $apiInstance->deleteProject($project_id);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectApi->deleteProject: ', $e->getMessage(), PHP_EOL;
 }
@@ -200,7 +200,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_PARAMETER_NAME** | [****](../Model/.md)| The ID of the project. Created and returned when a project is created. |
+ **project_id** | **string**| The ID of the project. Created and returned when a project is created. |
 
 ### Return type
 
@@ -222,7 +222,7 @@ void (empty response body)
 ## `deleteProjectVersion()`
 
 ```php
-deleteProjectVersion($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2): \OpenAPI\Client\Model\Project
+deleteProjectVersion($project_id, $version): \OpenAPI\Client\Model\Project
 ```
 
 Delete a project version
@@ -253,11 +253,11 @@ $apiInstance = new OpenAPI\Client\Api\ProjectApi(
     new GuzzleHttp\Client(),
     $config
 );
-$UNKNOWN_PARAMETER_NAME = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; //  | The ID of the project. Created and returned when a project is created.
-$UNKNOWN_PARAMETER_NAME2 = 2; //  | The version of the project.
+$project_id = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; // string | The ID of the project. Created and returned when a project is created.
+$version = 2; // string | The version of the project.
 
 try {
-    $result = $apiInstance->deleteProjectVersion($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2);
+    $result = $apiInstance->deleteProjectVersion($project_id, $version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectApi->deleteProjectVersion: ', $e->getMessage(), PHP_EOL;
@@ -268,8 +268,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_PARAMETER_NAME** | [****](../Model/.md)| The ID of the project. Created and returned when a project is created. |
- **UNKNOWN_PARAMETER_NAME2** | [****](../Model/.md)| The version of the project. |
+ **project_id** | **string**| The ID of the project. Created and returned when a project is created. |
+ **version** | **string**| The version of the project. |
 
 ### Return type
 
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 ## `getProject()`
 
 ```php
-getProject($UNKNOWN_PARAMETER_NAME): \OpenAPI\Client\Model\Project
+getProject($project_id): \OpenAPI\Client\Model\Project
 ```
 
 Get a project's metadata
@@ -322,10 +322,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectApi(
     new GuzzleHttp\Client(),
     $config
 );
-$UNKNOWN_PARAMETER_NAME = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; //  | The ID of the project. Created and returned when a project is created.
+$project_id = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; // string | The ID of the project. Created and returned when a project is created.
 
 try {
-    $result = $apiInstance->getProject($UNKNOWN_PARAMETER_NAME);
+    $result = $apiInstance->getProject($project_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectApi->getProject: ', $e->getMessage(), PHP_EOL;
@@ -336,7 +336,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_PARAMETER_NAME** | [****](../Model/.md)| The ID of the project. Created and returned when a project is created. |
+ **project_id** | **string**| The ID of the project. Created and returned when a project is created. |
 
 ### Return type
 
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 ## `getProjectDeploymentStatus()`
 
 ```php
-getProjectDeploymentStatus($UNKNOWN_PARAMETER_NAME): object
+getProjectDeploymentStatus($project_id): object
 ```
 
 Get deployment status
@@ -389,10 +389,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectApi(
     new GuzzleHttp\Client(),
     $config
 );
-$UNKNOWN_PARAMETER_NAME = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; //  | The ID of the project. Created and returned when a project is created.
+$project_id = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; // string | The ID of the project. Created and returned when a project is created.
 
 try {
-    $result = $apiInstance->getProjectDeploymentStatus($UNKNOWN_PARAMETER_NAME);
+    $result = $apiInstance->getProjectDeploymentStatus($project_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectApi->getProjectDeploymentStatus: ', $e->getMessage(), PHP_EOL;
@@ -403,7 +403,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_PARAMETER_NAME** | [****](../Model/.md)| The ID of the project. Created and returned when a project is created. |
+ **project_id** | **string**| The ID of the project. Created and returned when a project is created. |
 
 ### Return type
 
@@ -425,7 +425,7 @@ Name | Type | Description  | Notes
 ## `getProjectDeploymentURL()`
 
 ```php
-getProjectDeploymentURL($UNKNOWN_PARAMETER_NAME, $unknown_base_type): \OpenAPI\Client\Model\ProjectDeploymentURL
+getProjectDeploymentURL($project_id, $inline_object): \OpenAPI\Client\Model\ProjectDeploymentURL
 ```
 
 Get the deployment URL
@@ -456,11 +456,11 @@ $apiInstance = new OpenAPI\Client\Api\ProjectApi(
     new GuzzleHttp\Client(),
     $config
 );
-$UNKNOWN_PARAMETER_NAME = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; //  | The ID of the project. Created and returned when a project is created.
-$unknown_base_type = new \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE(); // \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE
+$project_id = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; // string | The ID of the project. Created and returned when a project is created.
+$inline_object = new \OpenAPI\Client\Model\InlineObject(); // \OpenAPI\Client\Model\InlineObject
 
 try {
-    $result = $apiInstance->getProjectDeploymentURL($UNKNOWN_PARAMETER_NAME, $unknown_base_type);
+    $result = $apiInstance->getProjectDeploymentURL($project_id, $inline_object);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectApi->getProjectDeploymentURL: ', $e->getMessage(), PHP_EOL;
@@ -471,8 +471,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_PARAMETER_NAME** | [****](../Model/.md)| The ID of the project. Created and returned when a project is created. |
- **unknown_base_type** | [**\OpenAPI\Client\Model\UNKNOWN_BASE_TYPE**](../Model/UNKNOWN_BASE_TYPE.md)|  | [optional]
+ **project_id** | **string**| The ID of the project. Created and returned when a project is created. |
+ **inline_object** | [**\OpenAPI\Client\Model\InlineObject**](../Model/InlineObject.md)|  | [optional]
 
 ### Return type
 
@@ -494,7 +494,7 @@ Name | Type | Description  | Notes
 ## `getProjectStats()`
 
 ```php
-getProjectStats($UNKNOWN_PARAMETER_NAME): \OpenAPI\Client\Model\StatItem[]
+getProjectStats($project_id): \OpenAPI\Client\Model\StatItem[]
 ```
 
 Get a project's stats
@@ -525,10 +525,10 @@ $apiInstance = new OpenAPI\Client\Api\ProjectApi(
     new GuzzleHttp\Client(),
     $config
 );
-$UNKNOWN_PARAMETER_NAME = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; //  | The ID of the project. Created and returned when a project is created.
+$project_id = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; // string | The ID of the project. Created and returned when a project is created.
 
 try {
-    $result = $apiInstance->getProjectStats($UNKNOWN_PARAMETER_NAME);
+    $result = $apiInstance->getProjectStats($project_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectApi->getProjectStats: ', $e->getMessage(), PHP_EOL;
@@ -539,7 +539,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_PARAMETER_NAME** | [****](../Model/.md)| The ID of the project. Created and returned when a project is created. |
+ **project_id** | **string**| The ID of the project. Created and returned when a project is created. |
 
 ### Return type
 
@@ -625,7 +625,7 @@ This endpoint does not need any parameter.
 ## `updateProject()`
 
 ```php
-updateProject($UNKNOWN_PARAMETER_NAME, $project_create_request): \OpenAPI\Client\Model\Project
+updateProject($project_id, $project_create_request): \OpenAPI\Client\Model\Project
 ```
 
 Update a project
@@ -656,11 +656,11 @@ $apiInstance = new OpenAPI\Client\Api\ProjectApi(
     new GuzzleHttp\Client(),
     $config
 );
-$UNKNOWN_PARAMETER_NAME = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; //  | The ID of the project. Created and returned when a project is created.
+$project_id = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; // string | The ID of the project. Created and returned when a project is created.
 $project_create_request = new \OpenAPI\Client\Model\ProjectCreateRequest(); // \OpenAPI\Client\Model\ProjectCreateRequest
 
 try {
-    $result = $apiInstance->updateProject($UNKNOWN_PARAMETER_NAME, $project_create_request);
+    $result = $apiInstance->updateProject($project_id, $project_create_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectApi->updateProject: ', $e->getMessage(), PHP_EOL;
@@ -671,7 +671,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_PARAMETER_NAME** | [****](../Model/.md)| The ID of the project. Created and returned when a project is created. |
+ **project_id** | **string**| The ID of the project. Created and returned when a project is created. |
  **project_create_request** | [**\OpenAPI\Client\Model\ProjectCreateRequest**](../Model/ProjectCreateRequest.md)|  | [optional]
 
 ### Return type
@@ -694,7 +694,7 @@ Name | Type | Description  | Notes
 ## `updateProjectDocumentation()`
 
 ```php
-updateProjectDocumentation($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2): \OpenAPI\Client\Model\Project
+updateProjectDocumentation($project_id, $version): \OpenAPI\Client\Model\Project
 ```
 
 Update the project's documentation
@@ -725,11 +725,11 @@ $apiInstance = new OpenAPI\Client\Api\ProjectApi(
     new GuzzleHttp\Client(),
     $config
 );
-$UNKNOWN_PARAMETER_NAME = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; //  | The ID of the project. Created and returned when a project is created.
-$UNKNOWN_PARAMETER_NAME2 = 2; //  | The version of the project.
+$project_id = L3cPm0cJlf5MeDXzGLQJJ4vlzndJCC; // string | The ID of the project. Created and returned when a project is created.
+$version = 2; // string | The version of the project.
 
 try {
-    $result = $apiInstance->updateProjectDocumentation($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2);
+    $result = $apiInstance->updateProjectDocumentation($project_id, $version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectApi->updateProjectDocumentation: ', $e->getMessage(), PHP_EOL;
@@ -740,8 +740,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_PARAMETER_NAME** | [****](../Model/.md)| The ID of the project. Created and returned when a project is created. |
- **UNKNOWN_PARAMETER_NAME2** | [****](../Model/.md)| The version of the project. |
+ **project_id** | **string**| The ID of the project. Created and returned when a project is created. |
+ **version** | **string**| The version of the project. |
 
 ### Return type
 

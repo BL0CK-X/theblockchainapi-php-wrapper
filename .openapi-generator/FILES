@@ -49,6 +49,7 @@ docs/Model/GetNFTListingResponse.md
 docs/Model/GetPublicKeyRequest.md
 docs/Model/GetSPLTokenResponse.md
 docs/Model/Group.md
+docs/Model/InlineObject.md
 docs/Model/ListNFTsResponse.md
 docs/Model/ListRequest.md
 docs/Model/ListResponse.md
@@ -133,6 +134,7 @@ lib/Model/GetNFTListingResponse.php
 lib/Model/GetPublicKeyRequest.php
 lib/Model/GetSPLTokenResponse.php
 lib/Model/Group.php
+lib/Model/InlineObject.php
 lib/Model/ListNFTsResponse.php
 lib/Model/ListRequest.php
 lib/Model/ListResponse.php
@@ -170,13 +172,3 @@ lib/Model/UploadFileRequest.php
 lib/Model/Wallet.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/EndpointApiTest.php
-test/Api/ProjectApiTest.php
-test/Model/EndpointReferenceTest.php
-test/Model/EndpointTest.php
-test/Model/GroupTest.php
-test/Model/ParameterSpecificationTest.php
-test/Model/ProjectCreateRequestTest.php
-test/Model/ProjectDeploymentURLTest.php
-test/Model/ProjectTest.php
-test/Model/StatItemTest.php

@@ -394,16 +394,16 @@ class ProjectApi
      *
      * Create a new project version
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Project
      */
-    public function createProjectVersion($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function createProjectVersion($project_id, $version)
     {
-        list($response) = $this->createProjectVersionWithHttpInfo($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2);
+        list($response) = $this->createProjectVersionWithHttpInfo($project_id, $version);
         return $response;
     }
 
@@ -412,16 +412,16 @@ class ProjectApi
      *
      * Create a new project version
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Project, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createProjectVersionWithHttpInfo($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function createProjectVersionWithHttpInfo($project_id, $version)
     {
-        $request = $this->createProjectVersionRequest($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2);
+        $request = $this->createProjectVersionRequest($project_id, $version);
 
         try {
             $options = $this->createHttpClientOption();
@@ -506,15 +506,15 @@ class ProjectApi
      *
      * Create a new project version
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProjectVersionAsync($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function createProjectVersionAsync($project_id, $version)
     {
-        return $this->createProjectVersionAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+        return $this->createProjectVersionAsyncWithHttpInfo($project_id, $version)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -527,16 +527,16 @@ class ProjectApi
      *
      * Create a new project version
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createProjectVersionAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function createProjectVersionAsyncWithHttpInfo($project_id, $version)
     {
         $returnType = '\OpenAPI\Client\Model\Project';
-        $request = $this->createProjectVersionRequest($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2);
+        $request = $this->createProjectVersionRequest($project_id, $version);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -574,24 +574,24 @@ class ProjectApi
     /**
      * Create request for operation 'createProjectVersion'
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createProjectVersionRequest($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function createProjectVersionRequest($project_id, $version)
     {
-        // verify the required parameter 'UNKNOWN_PARAMETER_NAME' is set
-        if ($UNKNOWN_PARAMETER_NAME === null || (is_array($UNKNOWN_PARAMETER_NAME) && count($UNKNOWN_PARAMETER_NAME) === 0)) {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $UNKNOWN_PARAMETER_NAME when calling createProjectVersion'
+                'Missing the required parameter $project_id when calling createProjectVersion'
             );
         }
-        // verify the required parameter 'UNKNOWN_PARAMETER_NAME2' is set
-        if ($UNKNOWN_PARAMETER_NAME2 === null || (is_array($UNKNOWN_PARAMETER_NAME2) && count($UNKNOWN_PARAMETER_NAME2) === 0)) {
+        // verify the required parameter 'version' is set
+        if ($version === null || (is_array($version) && count($version) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $UNKNOWN_PARAMETER_NAME2 when calling createProjectVersion'
+                'Missing the required parameter $version when calling createProjectVersion'
             );
         }
 
@@ -605,18 +605,18 @@ class ProjectApi
 
 
         // path params
-        if ($UNKNOWN_PARAMETER_NAME !== null) {
+        if ($project_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($UNKNOWN_PARAMETER_NAME),
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }
         // path params
-        if ($UNKNOWN_PARAMETER_NAME2 !== null) {
+        if ($version !== null) {
             $resourcePath = str_replace(
                 '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($UNKNOWN_PARAMETER_NAME2),
+                ObjectSerializer::toPathValue($version),
                 $resourcePath
             );
         }
@@ -694,15 +694,15 @@ class ProjectApi
      *
      * Delete a project
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteProject($UNKNOWN_PARAMETER_NAME)
+    public function deleteProject($project_id)
     {
-        $this->deleteProjectWithHttpInfo($UNKNOWN_PARAMETER_NAME);
+        $this->deleteProjectWithHttpInfo($project_id);
     }
 
     /**
@@ -710,15 +710,15 @@ class ProjectApi
      *
      * Delete a project
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteProjectWithHttpInfo($UNKNOWN_PARAMETER_NAME)
+    public function deleteProjectWithHttpInfo($project_id)
     {
-        $request = $this->deleteProjectRequest($UNKNOWN_PARAMETER_NAME);
+        $request = $this->deleteProjectRequest($project_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -769,14 +769,14 @@ class ProjectApi
      *
      * Delete a project
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProjectAsync($UNKNOWN_PARAMETER_NAME)
+    public function deleteProjectAsync($project_id)
     {
-        return $this->deleteProjectAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME)
+        return $this->deleteProjectAsyncWithHttpInfo($project_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -789,15 +789,15 @@ class ProjectApi
      *
      * Delete a project
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProjectAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME)
+    public function deleteProjectAsyncWithHttpInfo($project_id)
     {
         $returnType = '';
-        $request = $this->deleteProjectRequest($UNKNOWN_PARAMETER_NAME);
+        $request = $this->deleteProjectRequest($project_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -825,17 +825,17 @@ class ProjectApi
     /**
      * Create request for operation 'deleteProject'
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteProjectRequest($UNKNOWN_PARAMETER_NAME)
+    public function deleteProjectRequest($project_id)
     {
-        // verify the required parameter 'UNKNOWN_PARAMETER_NAME' is set
-        if ($UNKNOWN_PARAMETER_NAME === null || (is_array($UNKNOWN_PARAMETER_NAME) && count($UNKNOWN_PARAMETER_NAME) === 0)) {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $UNKNOWN_PARAMETER_NAME when calling deleteProject'
+                'Missing the required parameter $project_id when calling deleteProject'
             );
         }
 
@@ -849,10 +849,10 @@ class ProjectApi
 
 
         // path params
-        if ($UNKNOWN_PARAMETER_NAME !== null) {
+        if ($project_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($UNKNOWN_PARAMETER_NAME),
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }
@@ -930,16 +930,16 @@ class ProjectApi
      *
      * Delete a project version
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Project
      */
-    public function deleteProjectVersion($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function deleteProjectVersion($project_id, $version)
     {
-        list($response) = $this->deleteProjectVersionWithHttpInfo($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2);
+        list($response) = $this->deleteProjectVersionWithHttpInfo($project_id, $version);
         return $response;
     }
 
@@ -948,16 +948,16 @@ class ProjectApi
      *
      * Delete a project version
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Project, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteProjectVersionWithHttpInfo($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function deleteProjectVersionWithHttpInfo($project_id, $version)
     {
-        $request = $this->deleteProjectVersionRequest($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2);
+        $request = $this->deleteProjectVersionRequest($project_id, $version);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1042,15 +1042,15 @@ class ProjectApi
      *
      * Delete a project version
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProjectVersionAsync($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function deleteProjectVersionAsync($project_id, $version)
     {
-        return $this->deleteProjectVersionAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+        return $this->deleteProjectVersionAsyncWithHttpInfo($project_id, $version)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1063,16 +1063,16 @@ class ProjectApi
      *
      * Delete a project version
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProjectVersionAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function deleteProjectVersionAsyncWithHttpInfo($project_id, $version)
     {
         $returnType = '\OpenAPI\Client\Model\Project';
-        $request = $this->deleteProjectVersionRequest($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2);
+        $request = $this->deleteProjectVersionRequest($project_id, $version);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1110,24 +1110,24 @@ class ProjectApi
     /**
      * Create request for operation 'deleteProjectVersion'
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deleteProjectVersionRequest($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function deleteProjectVersionRequest($project_id, $version)
     {
-        // verify the required parameter 'UNKNOWN_PARAMETER_NAME' is set
-        if ($UNKNOWN_PARAMETER_NAME === null || (is_array($UNKNOWN_PARAMETER_NAME) && count($UNKNOWN_PARAMETER_NAME) === 0)) {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $UNKNOWN_PARAMETER_NAME when calling deleteProjectVersion'
+                'Missing the required parameter $project_id when calling deleteProjectVersion'
             );
         }
-        // verify the required parameter 'UNKNOWN_PARAMETER_NAME2' is set
-        if ($UNKNOWN_PARAMETER_NAME2 === null || (is_array($UNKNOWN_PARAMETER_NAME2) && count($UNKNOWN_PARAMETER_NAME2) === 0)) {
+        // verify the required parameter 'version' is set
+        if ($version === null || (is_array($version) && count($version) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $UNKNOWN_PARAMETER_NAME2 when calling deleteProjectVersion'
+                'Missing the required parameter $version when calling deleteProjectVersion'
             );
         }
 
@@ -1141,18 +1141,18 @@ class ProjectApi
 
 
         // path params
-        if ($UNKNOWN_PARAMETER_NAME !== null) {
+        if ($project_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($UNKNOWN_PARAMETER_NAME),
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }
         // path params
-        if ($UNKNOWN_PARAMETER_NAME2 !== null) {
+        if ($version !== null) {
             $resourcePath = str_replace(
                 '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($UNKNOWN_PARAMETER_NAME2),
+                ObjectSerializer::toPathValue($version),
                 $resourcePath
             );
         }
@@ -1230,15 +1230,15 @@ class ProjectApi
      *
      * Get a project&#39;s metadata
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Project
      */
-    public function getProject($UNKNOWN_PARAMETER_NAME)
+    public function getProject($project_id)
     {
-        list($response) = $this->getProjectWithHttpInfo($UNKNOWN_PARAMETER_NAME);
+        list($response) = $this->getProjectWithHttpInfo($project_id);
         return $response;
     }
 
@@ -1247,15 +1247,15 @@ class ProjectApi
      *
      * Get a project&#39;s metadata
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Project, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProjectWithHttpInfo($UNKNOWN_PARAMETER_NAME)
+    public function getProjectWithHttpInfo($project_id)
     {
-        $request = $this->getProjectRequest($UNKNOWN_PARAMETER_NAME);
+        $request = $this->getProjectRequest($project_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1340,14 +1340,14 @@ class ProjectApi
      *
      * Get a project&#39;s metadata
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectAsync($UNKNOWN_PARAMETER_NAME)
+    public function getProjectAsync($project_id)
     {
-        return $this->getProjectAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME)
+        return $this->getProjectAsyncWithHttpInfo($project_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1360,15 +1360,15 @@ class ProjectApi
      *
      * Get a project&#39;s metadata
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME)
+    public function getProjectAsyncWithHttpInfo($project_id)
     {
         $returnType = '\OpenAPI\Client\Model\Project';
-        $request = $this->getProjectRequest($UNKNOWN_PARAMETER_NAME);
+        $request = $this->getProjectRequest($project_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1406,17 +1406,17 @@ class ProjectApi
     /**
      * Create request for operation 'getProject'
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProjectRequest($UNKNOWN_PARAMETER_NAME)
+    public function getProjectRequest($project_id)
     {
-        // verify the required parameter 'UNKNOWN_PARAMETER_NAME' is set
-        if ($UNKNOWN_PARAMETER_NAME === null || (is_array($UNKNOWN_PARAMETER_NAME) && count($UNKNOWN_PARAMETER_NAME) === 0)) {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $UNKNOWN_PARAMETER_NAME when calling getProject'
+                'Missing the required parameter $project_id when calling getProject'
             );
         }
 
@@ -1430,10 +1430,10 @@ class ProjectApi
 
 
         // path params
-        if ($UNKNOWN_PARAMETER_NAME !== null) {
+        if ($project_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($UNKNOWN_PARAMETER_NAME),
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }
@@ -1511,15 +1511,15 @@ class ProjectApi
      *
      * Get deployment status
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function getProjectDeploymentStatus($UNKNOWN_PARAMETER_NAME)
+    public function getProjectDeploymentStatus($project_id)
     {
-        list($response) = $this->getProjectDeploymentStatusWithHttpInfo($UNKNOWN_PARAMETER_NAME);
+        list($response) = $this->getProjectDeploymentStatusWithHttpInfo($project_id);
         return $response;
     }
 
@@ -1528,15 +1528,15 @@ class ProjectApi
      *
      * Get deployment status
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProjectDeploymentStatusWithHttpInfo($UNKNOWN_PARAMETER_NAME)
+    public function getProjectDeploymentStatusWithHttpInfo($project_id)
     {
-        $request = $this->getProjectDeploymentStatusRequest($UNKNOWN_PARAMETER_NAME);
+        $request = $this->getProjectDeploymentStatusRequest($project_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1621,14 +1621,14 @@ class ProjectApi
      *
      * Get deployment status
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectDeploymentStatusAsync($UNKNOWN_PARAMETER_NAME)
+    public function getProjectDeploymentStatusAsync($project_id)
     {
-        return $this->getProjectDeploymentStatusAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME)
+        return $this->getProjectDeploymentStatusAsyncWithHttpInfo($project_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1641,15 +1641,15 @@ class ProjectApi
      *
      * Get deployment status
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectDeploymentStatusAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME)
+    public function getProjectDeploymentStatusAsyncWithHttpInfo($project_id)
     {
         $returnType = 'object';
-        $request = $this->getProjectDeploymentStatusRequest($UNKNOWN_PARAMETER_NAME);
+        $request = $this->getProjectDeploymentStatusRequest($project_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1687,17 +1687,17 @@ class ProjectApi
     /**
      * Create request for operation 'getProjectDeploymentStatus'
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProjectDeploymentStatusRequest($UNKNOWN_PARAMETER_NAME)
+    public function getProjectDeploymentStatusRequest($project_id)
     {
-        // verify the required parameter 'UNKNOWN_PARAMETER_NAME' is set
-        if ($UNKNOWN_PARAMETER_NAME === null || (is_array($UNKNOWN_PARAMETER_NAME) && count($UNKNOWN_PARAMETER_NAME) === 0)) {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $UNKNOWN_PARAMETER_NAME when calling getProjectDeploymentStatus'
+                'Missing the required parameter $project_id when calling getProjectDeploymentStatus'
             );
         }
 
@@ -1711,10 +1711,10 @@ class ProjectApi
 
 
         // path params
-        if ($UNKNOWN_PARAMETER_NAME !== null) {
+        if ($project_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($UNKNOWN_PARAMETER_NAME),
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }
@@ -1792,16 +1792,16 @@ class ProjectApi
      *
      * Get the deployment URL
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type unknown_base_type (optional)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  \OpenAPI\Client\Model\InlineObject $inline_object inline_object (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ProjectDeploymentURL
      */
-    public function getProjectDeploymentURL($UNKNOWN_PARAMETER_NAME, $unknown_base_type = null)
+    public function getProjectDeploymentURL($project_id, $inline_object = null)
     {
-        list($response) = $this->getProjectDeploymentURLWithHttpInfo($UNKNOWN_PARAMETER_NAME, $unknown_base_type);
+        list($response) = $this->getProjectDeploymentURLWithHttpInfo($project_id, $inline_object);
         return $response;
     }
 
@@ -1810,16 +1810,16 @@ class ProjectApi
      *
      * Get the deployment URL
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (optional)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  \OpenAPI\Client\Model\InlineObject $inline_object (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ProjectDeploymentURL, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProjectDeploymentURLWithHttpInfo($UNKNOWN_PARAMETER_NAME, $unknown_base_type = null)
+    public function getProjectDeploymentURLWithHttpInfo($project_id, $inline_object = null)
     {
-        $request = $this->getProjectDeploymentURLRequest($UNKNOWN_PARAMETER_NAME, $unknown_base_type);
+        $request = $this->getProjectDeploymentURLRequest($project_id, $inline_object);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1904,15 +1904,15 @@ class ProjectApi
      *
      * Get the deployment URL
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (optional)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  \OpenAPI\Client\Model\InlineObject $inline_object (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectDeploymentURLAsync($UNKNOWN_PARAMETER_NAME, $unknown_base_type = null)
+    public function getProjectDeploymentURLAsync($project_id, $inline_object = null)
     {
-        return $this->getProjectDeploymentURLAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME, $unknown_base_type)
+        return $this->getProjectDeploymentURLAsyncWithHttpInfo($project_id, $inline_object)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1925,16 +1925,16 @@ class ProjectApi
      *
      * Get the deployment URL
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (optional)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  \OpenAPI\Client\Model\InlineObject $inline_object (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectDeploymentURLAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME, $unknown_base_type = null)
+    public function getProjectDeploymentURLAsyncWithHttpInfo($project_id, $inline_object = null)
     {
         $returnType = '\OpenAPI\Client\Model\ProjectDeploymentURL';
-        $request = $this->getProjectDeploymentURLRequest($UNKNOWN_PARAMETER_NAME, $unknown_base_type);
+        $request = $this->getProjectDeploymentURLRequest($project_id, $inline_object);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1972,18 +1972,18 @@ class ProjectApi
     /**
      * Create request for operation 'getProjectDeploymentURL'
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param  \OpenAPI\Client\Model\UNKNOWN_BASE_TYPE $unknown_base_type (optional)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  \OpenAPI\Client\Model\InlineObject $inline_object (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProjectDeploymentURLRequest($UNKNOWN_PARAMETER_NAME, $unknown_base_type = null)
+    public function getProjectDeploymentURLRequest($project_id, $inline_object = null)
     {
-        // verify the required parameter 'UNKNOWN_PARAMETER_NAME' is set
-        if ($UNKNOWN_PARAMETER_NAME === null || (is_array($UNKNOWN_PARAMETER_NAME) && count($UNKNOWN_PARAMETER_NAME) === 0)) {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $UNKNOWN_PARAMETER_NAME when calling getProjectDeploymentURL'
+                'Missing the required parameter $project_id when calling getProjectDeploymentURL'
             );
         }
 
@@ -1997,10 +1997,10 @@ class ProjectApi
 
 
         // path params
-        if ($UNKNOWN_PARAMETER_NAME !== null) {
+        if ($project_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($UNKNOWN_PARAMETER_NAME),
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }
@@ -2018,11 +2018,11 @@ class ProjectApi
         }
 
         // for model (json/xml)
-        if (isset($unknown_base_type)) {
+        if (isset($inline_object)) {
             if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($unknown_base_type));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($inline_object));
             } else {
-                $httpBody = $unknown_base_type;
+                $httpBody = $inline_object;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2084,15 +2084,15 @@ class ProjectApi
      *
      * Get a project&#39;s stats
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\StatItem[]
      */
-    public function getProjectStats($UNKNOWN_PARAMETER_NAME)
+    public function getProjectStats($project_id)
     {
-        list($response) = $this->getProjectStatsWithHttpInfo($UNKNOWN_PARAMETER_NAME);
+        list($response) = $this->getProjectStatsWithHttpInfo($project_id);
         return $response;
     }
 
@@ -2101,15 +2101,15 @@ class ProjectApi
      *
      * Get a project&#39;s stats
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\StatItem[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getProjectStatsWithHttpInfo($UNKNOWN_PARAMETER_NAME)
+    public function getProjectStatsWithHttpInfo($project_id)
     {
-        $request = $this->getProjectStatsRequest($UNKNOWN_PARAMETER_NAME);
+        $request = $this->getProjectStatsRequest($project_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2194,14 +2194,14 @@ class ProjectApi
      *
      * Get a project&#39;s stats
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectStatsAsync($UNKNOWN_PARAMETER_NAME)
+    public function getProjectStatsAsync($project_id)
     {
-        return $this->getProjectStatsAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME)
+        return $this->getProjectStatsAsyncWithHttpInfo($project_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2214,15 +2214,15 @@ class ProjectApi
      *
      * Get a project&#39;s stats
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getProjectStatsAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME)
+    public function getProjectStatsAsyncWithHttpInfo($project_id)
     {
         $returnType = '\OpenAPI\Client\Model\StatItem[]';
-        $request = $this->getProjectStatsRequest($UNKNOWN_PARAMETER_NAME);
+        $request = $this->getProjectStatsRequest($project_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2260,17 +2260,17 @@ class ProjectApi
     /**
      * Create request for operation 'getProjectStats'
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getProjectStatsRequest($UNKNOWN_PARAMETER_NAME)
+    public function getProjectStatsRequest($project_id)
     {
-        // verify the required parameter 'UNKNOWN_PARAMETER_NAME' is set
-        if ($UNKNOWN_PARAMETER_NAME === null || (is_array($UNKNOWN_PARAMETER_NAME) && count($UNKNOWN_PARAMETER_NAME) === 0)) {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $UNKNOWN_PARAMETER_NAME when calling getProjectStats'
+                'Missing the required parameter $project_id when calling getProjectStats'
             );
         }
 
@@ -2284,10 +2284,10 @@ class ProjectApi
 
 
         // path params
-        if ($UNKNOWN_PARAMETER_NAME !== null) {
+        if ($project_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($UNKNOWN_PARAMETER_NAME),
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }
@@ -2627,16 +2627,16 @@ class ProjectApi
      *
      * Update a project
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      * @param  \OpenAPI\Client\Model\ProjectCreateRequest $project_create_request project_create_request (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Project
      */
-    public function updateProject($UNKNOWN_PARAMETER_NAME, $project_create_request = null)
+    public function updateProject($project_id, $project_create_request = null)
     {
-        list($response) = $this->updateProjectWithHttpInfo($UNKNOWN_PARAMETER_NAME, $project_create_request);
+        list($response) = $this->updateProjectWithHttpInfo($project_id, $project_create_request);
         return $response;
     }
 
@@ -2645,16 +2645,16 @@ class ProjectApi
      *
      * Update a project
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      * @param  \OpenAPI\Client\Model\ProjectCreateRequest $project_create_request (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Project, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateProjectWithHttpInfo($UNKNOWN_PARAMETER_NAME, $project_create_request = null)
+    public function updateProjectWithHttpInfo($project_id, $project_create_request = null)
     {
-        $request = $this->updateProjectRequest($UNKNOWN_PARAMETER_NAME, $project_create_request);
+        $request = $this->updateProjectRequest($project_id, $project_create_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2739,15 +2739,15 @@ class ProjectApi
      *
      * Update a project
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      * @param  \OpenAPI\Client\Model\ProjectCreateRequest $project_create_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateProjectAsync($UNKNOWN_PARAMETER_NAME, $project_create_request = null)
+    public function updateProjectAsync($project_id, $project_create_request = null)
     {
-        return $this->updateProjectAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME, $project_create_request)
+        return $this->updateProjectAsyncWithHttpInfo($project_id, $project_create_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2760,16 +2760,16 @@ class ProjectApi
      *
      * Update a project
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      * @param  \OpenAPI\Client\Model\ProjectCreateRequest $project_create_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateProjectAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME, $project_create_request = null)
+    public function updateProjectAsyncWithHttpInfo($project_id, $project_create_request = null)
     {
         $returnType = '\OpenAPI\Client\Model\Project';
-        $request = $this->updateProjectRequest($UNKNOWN_PARAMETER_NAME, $project_create_request);
+        $request = $this->updateProjectRequest($project_id, $project_create_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2807,18 +2807,18 @@ class ProjectApi
     /**
      * Create request for operation 'updateProject'
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
      * @param  \OpenAPI\Client\Model\ProjectCreateRequest $project_create_request (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateProjectRequest($UNKNOWN_PARAMETER_NAME, $project_create_request = null)
+    public function updateProjectRequest($project_id, $project_create_request = null)
     {
-        // verify the required parameter 'UNKNOWN_PARAMETER_NAME' is set
-        if ($UNKNOWN_PARAMETER_NAME === null || (is_array($UNKNOWN_PARAMETER_NAME) && count($UNKNOWN_PARAMETER_NAME) === 0)) {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $UNKNOWN_PARAMETER_NAME when calling updateProject'
+                'Missing the required parameter $project_id when calling updateProject'
             );
         }
 
@@ -2832,10 +2832,10 @@ class ProjectApi
 
 
         // path params
-        if ($UNKNOWN_PARAMETER_NAME !== null) {
+        if ($project_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($UNKNOWN_PARAMETER_NAME),
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }
@@ -2919,16 +2919,16 @@ class ProjectApi
      *
      * Update the project&#39;s documentation
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Project
      */
-    public function updateProjectDocumentation($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function updateProjectDocumentation($project_id, $version)
     {
-        list($response) = $this->updateProjectDocumentationWithHttpInfo($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2);
+        list($response) = $this->updateProjectDocumentationWithHttpInfo($project_id, $version);
         return $response;
     }
 
@@ -2937,16 +2937,16 @@ class ProjectApi
      *
      * Update the project&#39;s documentation
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Project, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateProjectDocumentationWithHttpInfo($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function updateProjectDocumentationWithHttpInfo($project_id, $version)
     {
-        $request = $this->updateProjectDocumentationRequest($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2);
+        $request = $this->updateProjectDocumentationRequest($project_id, $version);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3031,15 +3031,15 @@ class ProjectApi
      *
      * Update the project&#39;s documentation
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateProjectDocumentationAsync($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function updateProjectDocumentationAsync($project_id, $version)
     {
-        return $this->updateProjectDocumentationAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+        return $this->updateProjectDocumentationAsyncWithHttpInfo($project_id, $version)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3052,16 +3052,16 @@ class ProjectApi
      *
      * Update the project&#39;s documentation
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateProjectDocumentationAsyncWithHttpInfo($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function updateProjectDocumentationAsyncWithHttpInfo($project_id, $version)
     {
         $returnType = '\OpenAPI\Client\Model\Project';
-        $request = $this->updateProjectDocumentationRequest($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2);
+        $request = $this->updateProjectDocumentationRequest($project_id, $version);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3099,24 +3099,24 @@ class ProjectApi
     /**
      * Create request for operation 'updateProjectDocumentation'
      *
-     * @param   $UNKNOWN_PARAMETER_NAME The ID of the project. Created and returned when a project is created. (required)
-     * @param   $UNKNOWN_PARAMETER_NAME2 The version of the project. (required)
+     * @param  string $project_id The ID of the project. Created and returned when a project is created. (required)
+     * @param  string $version The version of the project. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateProjectDocumentationRequest($UNKNOWN_PARAMETER_NAME, $UNKNOWN_PARAMETER_NAME2)
+    public function updateProjectDocumentationRequest($project_id, $version)
     {
-        // verify the required parameter 'UNKNOWN_PARAMETER_NAME' is set
-        if ($UNKNOWN_PARAMETER_NAME === null || (is_array($UNKNOWN_PARAMETER_NAME) && count($UNKNOWN_PARAMETER_NAME) === 0)) {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $UNKNOWN_PARAMETER_NAME when calling updateProjectDocumentation'
+                'Missing the required parameter $project_id when calling updateProjectDocumentation'
             );
         }
-        // verify the required parameter 'UNKNOWN_PARAMETER_NAME2' is set
-        if ($UNKNOWN_PARAMETER_NAME2 === null || (is_array($UNKNOWN_PARAMETER_NAME2) && count($UNKNOWN_PARAMETER_NAME2) === 0)) {
+        // verify the required parameter 'version' is set
+        if ($version === null || (is_array($version) && count($version) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $UNKNOWN_PARAMETER_NAME2 when calling updateProjectDocumentation'
+                'Missing the required parameter $version when calling updateProjectDocumentation'
             );
         }
 
@@ -3130,18 +3130,18 @@ class ProjectApi
 
 
         // path params
-        if ($UNKNOWN_PARAMETER_NAME !== null) {
+        if ($project_id !== null) {
             $resourcePath = str_replace(
                 '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($UNKNOWN_PARAMETER_NAME),
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }
         // path params
-        if ($UNKNOWN_PARAMETER_NAME2 !== null) {
+        if ($version !== null) {
             $resourcePath = str_replace(
                 '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($UNKNOWN_PARAMETER_NAME2),
+                ObjectSerializer::toPathValue($version),
                 $resourcePath
             );
         }
