@@ -12,5 +12,10 @@ Name | Type | Description | Notes
 **seller_fee_basis_points** | **float** |  | [optional]
 **mint_secret_recovery_phrase** | **string** |  | [optional]
 **explorer_url** | **string** |  | [optional]
+**metadata_account** | **string** | The metadata account of the NFT | [optional]
+**edition_nonce** | **float** |  | [optional]
+**token_standard** | **float** |  | [optional]
+**collection** | [**\OpenAPI\Client\Model\NFTCollection**](NFTCollection.md) |  | [optional]
+**uses** | **float** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
