@@ -234,8 +234,3 @@ lib/Model/Wallet.php
 lib/Model/WalletIdentifiers.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/NameServiceApiTest.php
-test/Api/TokenApiTest.php
-test/Model/InputBlockchainIdentifierTest.php
-test/Model/InputNameTest.php
-test/Model/TokenMetadataResponseTest.php

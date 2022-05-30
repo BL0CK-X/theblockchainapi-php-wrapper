@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 ## `getNameForBlockchainIdentifier()`
 
 ```php
-getNameForBlockchainIdentifier($blockchain, $network, $blockchain_identifier, $input_blockchain_identifier): \OpenAPI\Client\Model\InputName
+getNameForBlockchainIdentifier($blockchain, $network, $input_blockchain_identifier): \OpenAPI\Client\Model\InputName
 ```
 
 Get the name
@@ -115,11 +115,10 @@ $apiInstance = new OpenAPI\Client\Api\NameServiceApi(
 );
 $blockchain = 'blockchain_example'; // string | The blockchain you want to use
 $network = ropsten; // string | The network of the blockchain you selected  - Solana: `devnet`, `mainnet-beta` - Ethereum: `ropsten`, `mainnet`  Defaults when not provided (not applicable to path parameters): - Solana: `devnet` - Ethereum: `ropsten`
-$blockchain_identifier = 'blockchain_identifier_example'; // string | The identifier of the token (e.g., `mint_address` on `Solana` or `token_address` on `Ethereum`)
 $input_blockchain_identifier = new \OpenAPI\Client\Model\InputBlockchainIdentifier(); // \OpenAPI\Client\Model\InputBlockchainIdentifier
 
 try {
-    $result = $apiInstance->getNameForBlockchainIdentifier($blockchain, $network, $blockchain_identifier, $input_blockchain_identifier);
+    $result = $apiInstance->getNameForBlockchainIdentifier($blockchain, $network, $input_blockchain_identifier);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NameServiceApi->getNameForBlockchainIdentifier: ', $e->getMessage(), PHP_EOL;
@@ -132,7 +131,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **blockchain** | **string**| The blockchain you want to use |
  **network** | **string**| The network of the blockchain you selected  - Solana: &#x60;devnet&#x60;, &#x60;mainnet-beta&#x60; - Ethereum: &#x60;ropsten&#x60;, &#x60;mainnet&#x60;  Defaults when not provided (not applicable to path parameters): - Solana: &#x60;devnet&#x60; - Ethereum: &#x60;ropsten&#x60; |
- **blockchain_identifier** | **string**| The identifier of the token (e.g., &#x60;mint_address&#x60; on &#x60;Solana&#x60; or &#x60;token_address&#x60; on &#x60;Ethereum&#x60;) |
  **input_blockchain_identifier** | [**\OpenAPI\Client\Model\InputBlockchainIdentifier**](../Model/InputBlockchainIdentifier.md)|  | [optional]
 
 ### Return type

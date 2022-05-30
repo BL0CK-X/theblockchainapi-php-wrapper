@@ -434,16 +434,15 @@ class NameServiceApi
      *
      * @param  string $blockchain The blockchain you want to use (required)
      * @param  string $network The network of the blockchain you selected  - Solana: &#x60;devnet&#x60;, &#x60;mainnet-beta&#x60; - Ethereum: &#x60;ropsten&#x60;, &#x60;mainnet&#x60;  Defaults when not provided (not applicable to path parameters): - Solana: &#x60;devnet&#x60; - Ethereum: &#x60;ropsten&#x60; (required)
-     * @param  string $blockchain_identifier The identifier of the token (e.g., &#x60;mint_address&#x60; on &#x60;Solana&#x60; or &#x60;token_address&#x60; on &#x60;Ethereum&#x60;) (required)
      * @param  \OpenAPI\Client\Model\InputBlockchainIdentifier $input_blockchain_identifier input_blockchain_identifier (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\InputName
      */
-    public function getNameForBlockchainIdentifier($blockchain, $network, $blockchain_identifier, $input_blockchain_identifier = null)
+    public function getNameForBlockchainIdentifier($blockchain, $network, $input_blockchain_identifier = null)
     {
-        list($response) = $this->getNameForBlockchainIdentifierWithHttpInfo($blockchain, $network, $blockchain_identifier, $input_blockchain_identifier);
+        list($response) = $this->getNameForBlockchainIdentifierWithHttpInfo($blockchain, $network, $input_blockchain_identifier);
         return $response;
     }
 
@@ -454,16 +453,15 @@ class NameServiceApi
      *
      * @param  string $blockchain The blockchain you want to use (required)
      * @param  string $network The network of the blockchain you selected  - Solana: &#x60;devnet&#x60;, &#x60;mainnet-beta&#x60; - Ethereum: &#x60;ropsten&#x60;, &#x60;mainnet&#x60;  Defaults when not provided (not applicable to path parameters): - Solana: &#x60;devnet&#x60; - Ethereum: &#x60;ropsten&#x60; (required)
-     * @param  string $blockchain_identifier The identifier of the token (e.g., &#x60;mint_address&#x60; on &#x60;Solana&#x60; or &#x60;token_address&#x60; on &#x60;Ethereum&#x60;) (required)
      * @param  \OpenAPI\Client\Model\InputBlockchainIdentifier $input_blockchain_identifier (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\InputName, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNameForBlockchainIdentifierWithHttpInfo($blockchain, $network, $blockchain_identifier, $input_blockchain_identifier = null)
+    public function getNameForBlockchainIdentifierWithHttpInfo($blockchain, $network, $input_blockchain_identifier = null)
     {
-        $request = $this->getNameForBlockchainIdentifierRequest($blockchain, $network, $blockchain_identifier, $input_blockchain_identifier);
+        $request = $this->getNameForBlockchainIdentifierRequest($blockchain, $network, $input_blockchain_identifier);
 
         try {
             $options = $this->createHttpClientOption();
@@ -550,15 +548,14 @@ class NameServiceApi
      *
      * @param  string $blockchain The blockchain you want to use (required)
      * @param  string $network The network of the blockchain you selected  - Solana: &#x60;devnet&#x60;, &#x60;mainnet-beta&#x60; - Ethereum: &#x60;ropsten&#x60;, &#x60;mainnet&#x60;  Defaults when not provided (not applicable to path parameters): - Solana: &#x60;devnet&#x60; - Ethereum: &#x60;ropsten&#x60; (required)
-     * @param  string $blockchain_identifier The identifier of the token (e.g., &#x60;mint_address&#x60; on &#x60;Solana&#x60; or &#x60;token_address&#x60; on &#x60;Ethereum&#x60;) (required)
      * @param  \OpenAPI\Client\Model\InputBlockchainIdentifier $input_blockchain_identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNameForBlockchainIdentifierAsync($blockchain, $network, $blockchain_identifier, $input_blockchain_identifier = null)
+    public function getNameForBlockchainIdentifierAsync($blockchain, $network, $input_blockchain_identifier = null)
     {
-        return $this->getNameForBlockchainIdentifierAsyncWithHttpInfo($blockchain, $network, $blockchain_identifier, $input_blockchain_identifier)
+        return $this->getNameForBlockchainIdentifierAsyncWithHttpInfo($blockchain, $network, $input_blockchain_identifier)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -573,16 +570,15 @@ class NameServiceApi
      *
      * @param  string $blockchain The blockchain you want to use (required)
      * @param  string $network The network of the blockchain you selected  - Solana: &#x60;devnet&#x60;, &#x60;mainnet-beta&#x60; - Ethereum: &#x60;ropsten&#x60;, &#x60;mainnet&#x60;  Defaults when not provided (not applicable to path parameters): - Solana: &#x60;devnet&#x60; - Ethereum: &#x60;ropsten&#x60; (required)
-     * @param  string $blockchain_identifier The identifier of the token (e.g., &#x60;mint_address&#x60; on &#x60;Solana&#x60; or &#x60;token_address&#x60; on &#x60;Ethereum&#x60;) (required)
      * @param  \OpenAPI\Client\Model\InputBlockchainIdentifier $input_blockchain_identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNameForBlockchainIdentifierAsyncWithHttpInfo($blockchain, $network, $blockchain_identifier, $input_blockchain_identifier = null)
+    public function getNameForBlockchainIdentifierAsyncWithHttpInfo($blockchain, $network, $input_blockchain_identifier = null)
     {
         $returnType = '\OpenAPI\Client\Model\InputName';
-        $request = $this->getNameForBlockchainIdentifierRequest($blockchain, $network, $blockchain_identifier, $input_blockchain_identifier);
+        $request = $this->getNameForBlockchainIdentifierRequest($blockchain, $network, $input_blockchain_identifier);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -622,13 +618,12 @@ class NameServiceApi
      *
      * @param  string $blockchain The blockchain you want to use (required)
      * @param  string $network The network of the blockchain you selected  - Solana: &#x60;devnet&#x60;, &#x60;mainnet-beta&#x60; - Ethereum: &#x60;ropsten&#x60;, &#x60;mainnet&#x60;  Defaults when not provided (not applicable to path parameters): - Solana: &#x60;devnet&#x60; - Ethereum: &#x60;ropsten&#x60; (required)
-     * @param  string $blockchain_identifier The identifier of the token (e.g., &#x60;mint_address&#x60; on &#x60;Solana&#x60; or &#x60;token_address&#x60; on &#x60;Ethereum&#x60;) (required)
      * @param  \OpenAPI\Client\Model\InputBlockchainIdentifier $input_blockchain_identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNameForBlockchainIdentifierRequest($blockchain, $network, $blockchain_identifier, $input_blockchain_identifier = null)
+    public function getNameForBlockchainIdentifierRequest($blockchain, $network, $input_blockchain_identifier = null)
     {
         // verify the required parameter 'blockchain' is set
         if ($blockchain === null || (is_array($blockchain) && count($blockchain) === 0)) {
@@ -640,12 +635,6 @@ class NameServiceApi
         if ($network === null || (is_array($network) && count($network) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $network when calling getNameForBlockchainIdentifier'
-            );
-        }
-        // verify the required parameter 'blockchain_identifier' is set
-        if ($blockchain_identifier === null || (is_array($blockchain_identifier) && count($blockchain_identifier) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $blockchain_identifier when calling getNameForBlockchainIdentifier'
             );
         }
 
@@ -671,14 +660,6 @@ class NameServiceApi
             $resourcePath = str_replace(
                 '{' . 'network' . '}',
                 ObjectSerializer::toPathValue($network),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($blockchain_identifier !== null) {
-            $resourcePath = str_replace(
-                '{' . 'blockchain_identifier' . '}',
-                ObjectSerializer::toPathValue($blockchain_identifier),
                 $resourcePath
             );
         }
