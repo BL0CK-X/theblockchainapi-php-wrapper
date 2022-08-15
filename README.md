@@ -43,7 +43,7 @@ Got a feature request? Submit it as an issue on <a target=\"_blank\" href=\"http
         />
         <figcaption style=\"textAlign:center;\">Join our Discord</figcaption>
     </figure>
-</a> <a href=\"https://twitter.com/_BlockX_\" target=\"_blank\">
+</a> <a href=\"https://twitter.com/BlockchainAP1\" target=\"_blank\">
     <figure>
         <img 
             width=\"40px\"
@@ -79,7 +79,7 @@ Note: We have had a couple of individuals harrass and threaten us. These individ
 
 # Pricing
 
-<b>Each user receives 100 free credits. Each user can call endpoints that cost 0 credits up to 50 requests/min before being rate-limited.</b> Thereafter, they can upgrade to have a higher rate limit. The purpose of this is to act like a free trial -- not to function like a freemium model where one can stay on the free tier indefinitely.
+<b>Each user receives 50,000 free credits each month.</b> Each endpoint costs a certain amount credits. Scroll below to any endpoint (i.e., function) to see how much each endpoint costs. (Or CMD+F `Cost: 0 Credit`, for example)
 
 You can learn more about our pricing <a href=\"https://dashboard.blockchainapi.com/billing\" target=\"_blank\">here</a>. 
 
@@ -171,18 +171,20 @@ $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('AP
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APISecretKey', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\EndpointApi(
+$apiInstance = new OpenAPI\Client\Api\CCPaymentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$endpoint_reference = new \OpenAPI\Client\Model\EndpointReference(); // \OpenAPI\Client\Model\EndpointReference
+$project_id = project_WDQskRIfHQxj53N5mk5K; // string | The ID of the project. Created and returned when a project is created.
+$payment_identifier = ["payment_97jA1szpVjrSI5EvOb5zxNQFq5CfrC"]; // string | You can supply either `payment_id` or `payment_validation_code`.  The `payment_id` is only visible by you and uniquely identifies a payment.  The `payment_validation_code` is shown exclusively to the customer and the owner of the project. It can be used to redeem a payment. You can verify a payment by pulling the payment with the `payment_validation_code`.
 
 try {
-    $apiInstance->deleteEndpoint($endpoint_reference);
+    $result = $apiInstance->getCCPayment($project_id, $payment_identifier);
+    print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling EndpointApi->deleteEndpoint: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CCPaymentApi->getCCPayment: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -193,42 +195,33 @@ All URIs are relative to *https://api.blockchainapi.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*EndpointApi* | [**deleteEndpoint**](docs/Api/EndpointApi.md#deleteendpoint) | **POST** /endpoint/delete | Delete an endpoint
-*EndpointApi* | [**getEndpoint**](docs/Api/EndpointApi.md#getendpoint) | **POST** /endpoint/metadata | Get an endpoint&#39;s metadata
-*EndpointApi* | [**listEndpoints**](docs/Api/EndpointApi.md#listendpoints) | **GET** /endpoint/list | List all endpoints
-*EndpointApi* | [**setEndpoint**](docs/Api/EndpointApi.md#setendpoint) | **POST** /endpoint | Create / update an endpoint
+*CCPaymentApi* | [**getCCPayment**](docs/Api/CCPaymentApi.md#getccpayment) | **GET** /checkout/v1/project/{project_id}/payment/{payment_identifier} | Get a payment
+*CCPaymentApi* | [**listAllCCPayments**](docs/Api/CCPaymentApi.md#listallccpayments) | **GET** /checkout/v1/payments | List all payments
+*CCPaymentApi* | [**listCCProjectPayments**](docs/Api/CCPaymentApi.md#listccprojectpayments) | **GET** /checkout/v1/project/{project_id}/payments | List a project&#39;s payments
+*CCProjectApi* | [**createCCProject**](docs/Api/CCProjectApi.md#createccproject) | **POST** /checkout/v1/project | Create a project
+*CCProjectApi* | [**deleteCCProject**](docs/Api/CCProjectApi.md#deleteccproject) | **DELETE** /checkout/v1/project/{project_id} | Delete a project
+*CCProjectApi* | [**getCCProject**](docs/Api/CCProjectApi.md#getccproject) | **GET** /checkout/v1/project/{project_id} | Get a project
+*CCProjectApi* | [**listCCProjects**](docs/Api/CCProjectApi.md#listccprojects) | **GET** /checkout/v1/projects | List projects
+*CCProjectApi* | [**updateCCProject**](docs/Api/CCProjectApi.md#updateccproject) | **PUT** /checkout/v1/project/{project_id} | Update a project
+*CCWebhookApi* | [**getCCWebhook**](docs/Api/CCWebhookApi.md#getccwebhook) | **POST** /webhook/v1/project/{project_id}/webhook/{webhook_identifier} | Get a webhook
+*CCWebhookApi* | [**listCCProjectWebhooks**](docs/Api/CCWebhookApi.md#listccprojectwebhooks) | **POST** /webhook/v1/project/{project_id}/webhooks | List project&#39;s webhooks
+*CCWebhookApi* | [**validateCCWebhook**](docs/Api/CCWebhookApi.md#validateccwebhook) | **POST** /webhook/v1/project/{project_id}/webhook/{webhook_identifier}/validate | Validate a webhook
 *NameServiceApi* | [**getBlockchainIdentifierFromName**](docs/Api/NameServiceApi.md#getblockchainidentifierfromname) | **POST** /{blockchain}/{network}/name_service/name_to_blockchain_identifier | Get the identifier
 *NameServiceApi* | [**getNameForBlockchainIdentifier**](docs/Api/NameServiceApi.md#getnameforblockchainidentifier) | **POST** /{blockchain}/{network}/name_service/blockchain_identifier_to_name | Get the name
-*ProjectApi* | [**createProject**](docs/Api/ProjectApi.md#createproject) | **POST** /project | Create a project
-*ProjectApi* | [**createProjectVersion**](docs/Api/ProjectApi.md#createprojectversion) | **POST** /project/{project_id}/{version} | Create a new project version
-*ProjectApi* | [**deleteProject**](docs/Api/ProjectApi.md#deleteproject) | **DELETE** /project/{project_id} | Delete a project
-*ProjectApi* | [**deleteProjectVersion**](docs/Api/ProjectApi.md#deleteprojectversion) | **DELETE** /project/{project_id}/{version} | Delete a project version
-*ProjectApi* | [**getProject**](docs/Api/ProjectApi.md#getproject) | **GET** /project/{project_id} | Get a project&#39;s metadata
-*ProjectApi* | [**getProjectDeploymentStatus**](docs/Api/ProjectApi.md#getprojectdeploymentstatus) | **POST** /project/{project_id}/deploy/status | Get deployment status
-*ProjectApi* | [**getProjectDeploymentURL**](docs/Api/ProjectApi.md#getprojectdeploymenturl) | **POST** /project/{project_id}/deploy/url | Get the deployment URL
-*ProjectApi* | [**getProjectStats**](docs/Api/ProjectApi.md#getprojectstats) | **GET** /project/{project_id}/stats | Get a project&#39;s stats
-*ProjectApi* | [**listProjects**](docs/Api/ProjectApi.md#listprojects) | **GET** /project/list | List projects
-*ProjectApi* | [**updateProject**](docs/Api/ProjectApi.md#updateproject) | **POST** /project/{project_id} | Update a project
-*ProjectApi* | [**updateProjectDocumentation**](docs/Api/ProjectApi.md#updateprojectdocumentation) | **POST** /project/{project_id}/{version}/documentation | Update the project&#39;s documentation
 *SolanaAccountApi* | [**solanaGetAccount**](docs/Api/SolanaAccountApi.md#solanagetaccount) | **GET** /solana/account/{network}/{public_key} | Get the details of an account on Solana
 *SolanaAccountApi* | [**solanaGetAccountIsCandyMachine**](docs/Api/SolanaAccountApi.md#solanagetaccountiscandymachine) | **GET** /solana/account/{network}/{public_key}/is_candy_machine | Get if account is candy machine
 *SolanaAccountApi* | [**solanaGetAccountIsNFT**](docs/Api/SolanaAccountApi.md#solanagetaccountisnft) | **GET** /solana/account/{network}/{public_key}/is_nft | Get if account is NFT
-*SolanaCandyMachineApi* | [**solanaCreateTestCandyMachine**](docs/Api/SolanaCandyMachineApi.md#solanacreatetestcandymachine) | **POST** /solana/nft/candy_machine | Create a test CM
 *SolanaCandyMachineApi* | [**solanaGetAllNFTsFromCandyMachine**](docs/Api/SolanaCandyMachineApi.md#solanagetallnftsfromcandymachine) | **GET** /solana/nft/candy_machine/{network}/{candy_machine_id}/nfts | Get CM&#39;s NFTs
 *SolanaCandyMachineApi* | [**solanaGetCandyMachineMetadata**](docs/Api/SolanaCandyMachineApi.md#solanagetcandymachinemetadata) | **POST** /solana/nft/candy_machine/metadata | Get a CM&#39;s metadata
 *SolanaCandyMachineApi* | [**solanaListAllCandyMachines**](docs/Api/SolanaCandyMachineApi.md#solanalistallcandymachines) | **GET** /solana/nft/candy_machine/list | List all CMs
-*SolanaCandyMachineApi* | [**solanaMintFromCandyMachine**](docs/Api/SolanaCandyMachineApi.md#solanamintfromcandymachine) | **POST** /solana/nft/candy_machine/mint | Mint from a CM
 *SolanaCandyMachineApi* | [**solanaSearchCandyMachines**](docs/Api/SolanaCandyMachineApi.md#solanasearchcandymachines) | **POST** /solana/nft/candy_machine/search | Search CMs
 *SolanaNFTApi* | [**solanaCreateNFT**](docs/Api/SolanaNFTApi.md#solanacreatenft) | **POST** /solana/nft | Create an NFT on Solana
 *SolanaNFTApi* | [**solanaGetNFT**](docs/Api/SolanaNFTApi.md#solanagetnft) | **GET** /solana/nft/{network}/{mint_address} | Get an NFT&#39;s metadata
 *SolanaNFTApi* | [**solanaGetNFTMintFee**](docs/Api/SolanaNFTApi.md#solanagetnftmintfee) | **GET** /solana/nft/mint/fee | Get the NFT mint fee
 *SolanaNFTApi* | [**solanaGetNFTOwner**](docs/Api/SolanaNFTApi.md#solanagetnftowner) | **GET** /solana/nft/{network}/{mint_address}/owner | Get owner of an NFT
+*SolanaNFTApi* | [**solanaGetNFTOwnerAdvanced**](docs/Api/SolanaNFTApi.md#solanagetnftowneradvanced) | **GET** /solana/nft/{network}/{mint_address}/owner_advanced | Get owner of an NFT (advanced)
 *SolanaNFTApi* | [**solanaGetNFTsCandyMachineId**](docs/Api/SolanaNFTApi.md#solanagetnftscandymachineid) | **POST** /solana/nft/candy_machine_id | Get the ID of the candy machine of an NFT
 *SolanaNFTApi* | [**solanaSearchNFTs**](docs/Api/SolanaNFTApi.md#solanasearchnfts) | **POST** /solana/nft/search | Search NFTs on Solana
-*SolanaNFTMarketplacesApi* | [**solanaBuyNFT**](docs/Api/SolanaNFTMarketplacesApi.md#solanabuynft) | **POST** /solana/nft/marketplaces/{exchange}/buy/{network}/{mint_address} | Buy
-*SolanaNFTMarketplacesApi* | [**solanaDelistNFT**](docs/Api/SolanaNFTMarketplacesApi.md#solanadelistnft) | **POST** /solana/nft/marketplaces/{exchange}/delist/{network}/{mint_address} | Delist
-*SolanaNFTMarketplacesApi* | [**solanaGetNFTListing**](docs/Api/SolanaNFTMarketplacesApi.md#solanagetnftlisting) | **GET** /solana/nft/marketplaces/listing/{network}/{mint_address} | Get NFT Listing
-*SolanaNFTMarketplacesApi* | [**solanaListNFT**](docs/Api/SolanaNFTMarketplacesApi.md#solanalistnft) | **POST** /solana/nft/marketplaces/{exchange}/list/{network}/{mint_address} | List
 *SolanaSPLTokenApi* | [**solanaGetSPLToken**](docs/Api/SolanaSPLTokenApi.md#solanagetspltoken) | **GET** /solana/spl-token/{network}/{public_key} | Get SPL token metadata
 *SolanaTransactionApi* | [**solanaGetTransaction**](docs/Api/SolanaTransactionApi.md#solanagettransaction) | **GET** /solana/transaction/{network}/{tx_signature} | Get the details of a transaction made on Solana
 *SolanaWalletApi* | [**solanaDeriveAssociatedTokenAccountAddress**](docs/Api/SolanaWalletApi.md#solanaderiveassociatedtokenaccountaddress) | **GET** /solana/wallet/{public_key}/associated_token_account/{mint_address} | Derive an associated token account address
@@ -268,16 +261,16 @@ Class | Method | HTTP request | Description
 - [BSCPublicAddress](docs/Model/BSCPublicAddress.md)
 - [BalanceRequest](docs/Model/BalanceRequest.md)
 - [BalanceResponse](docs/Model/BalanceResponse.md)
-- [BuyRequest](docs/Model/BuyRequest.md)
-- [BuyResponse](docs/Model/BuyResponse.md)
+- [CCPayment](docs/Model/CCPayment.md)
+- [CCPaymentBlockchainPaymentDetails](docs/Model/CCPaymentBlockchainPaymentDetails.md)
+- [CCProject](docs/Model/CCProject.md)
+- [CCProjectCreateRequest](docs/Model/CCProjectCreateRequest.md)
+- [CCProjectCreateRequestCustomerIdToCollect](docs/Model/CCProjectCreateRequestCustomerIdToCollect.md)
+- [CCProjectCreateRequestPayoutMethod](docs/Model/CCProjectCreateRequestPayoutMethod.md)
+- [CCWebhook](docs/Model/CCWebhook.md)
+- [CCWebhookValidateRequest](docs/Model/CCWebhookValidateRequest.md)
 - [CandyMachineSearchRequest](docs/Model/CandyMachineSearchRequest.md)
-- [CreateTestCandyMachineRequest](docs/Model/CreateTestCandyMachineRequest.md)
-- [CreateTestCandyMachineResponse](docs/Model/CreateTestCandyMachineResponse.md)
-- [DelistRequest](docs/Model/DelistRequest.md)
-- [DelistResponse](docs/Model/DelistResponse.md)
 - [DoubleTransferResponse](docs/Model/DoubleTransferResponse.md)
-- [Endpoint](docs/Model/Endpoint.md)
-- [EndpointReference](docs/Model/EndpointReference.md)
 - [EthereumPublicAddress](docs/Model/EthereumPublicAddress.md)
 - [EthereumTransaction](docs/Model/EthereumTransaction.md)
 - [EthereumTransactionCompiledResponse](docs/Model/EthereumTransactionCompiledResponse.md)
@@ -308,35 +301,25 @@ Class | Method | HTTP request | Description
 - [GetCandyMetadataRequest](docs/Model/GetCandyMetadataRequest.md)
 - [GetCandyMetadataResponse](docs/Model/GetCandyMetadataResponse.md)
 - [GetCandyMetadataResponseCreators](docs/Model/GetCandyMetadataResponseCreators.md)
-- [GetNFTListingResponse](docs/Model/GetNFTListingResponse.md)
 - [GetPublicKeyRequest](docs/Model/GetPublicKeyRequest.md)
 - [GetSPLTokenResponse](docs/Model/GetSPLTokenResponse.md)
-- [Group](docs/Model/Group.md)
 - [HexPrivateKey](docs/Model/HexPrivateKey.md)
-- [InlineObject](docs/Model/InlineObject.md)
 - [InputBlockchainIdentifier](docs/Model/InputBlockchainIdentifier.md)
 - [InputName](docs/Model/InputName.md)
 - [ListNFTsResponse](docs/Model/ListNFTsResponse.md)
-- [ListRequest](docs/Model/ListRequest.md)
-- [ListResponse](docs/Model/ListResponse.md)
-- [MintNFTErrorResponse](docs/Model/MintNFTErrorResponse.md)
-- [MintNFTRequest](docs/Model/MintNFTRequest.md)
-- [MintNFTResponse](docs/Model/MintNFTResponse.md)
 - [NFT](docs/Model/NFT.md)
 - [NFTCollection](docs/Model/NFTCollection.md)
 - [NFTData](docs/Model/NFTData.md)
 - [NFTMintErrorResponse](docs/Model/NFTMintErrorResponse.md)
 - [NFTMintFee](docs/Model/NFTMintFee.md)
 - [NFTMintRequest](docs/Model/NFTMintRequest.md)
+- [NFTOwnerAdvancedResponse](docs/Model/NFTOwnerAdvancedResponse.md)
+- [NFTOwnerAdvancedResponseContract](docs/Model/NFTOwnerAdvancedResponseContract.md)
 - [NFTOwnerResponse](docs/Model/NFTOwnerResponse.md)
 - [NFTSearchRequest](docs/Model/NFTSearchRequest.md)
 - [NFTSearchResponse](docs/Model/NFTSearchResponse.md)
 - [NearPublicKey](docs/Model/NearPublicKey.md)
-- [ParameterSpecification](docs/Model/ParameterSpecification.md)
 - [PrivateKey](docs/Model/PrivateKey.md)
-- [Project](docs/Model/Project.md)
-- [ProjectCreateRequest](docs/Model/ProjectCreateRequest.md)
-- [ProjectDeploymentURL](docs/Model/ProjectDeploymentURL.md)
 - [PublicKey](docs/Model/PublicKey.md)
 - [SecretPhrase](docs/Model/SecretPhrase.md)
 - [SecretRecoveryPhrase](docs/Model/SecretRecoveryPhrase.md)
@@ -344,7 +327,6 @@ Class | Method | HTTP request | Description
 - [SolanaTransaction](docs/Model/SolanaTransaction.md)
 - [SolanaTransactionCompiledResponse](docs/Model/SolanaTransactionCompiledResponse.md)
 - [SolanaTransactionMadeResponse](docs/Model/SolanaTransactionMadeResponse.md)
-- [StatItem](docs/Model/StatItem.md)
 - [SupplyWalletRequest](docs/Model/SupplyWalletRequest.md)
 - [TokenMetadataResponse](docs/Model/TokenMetadataResponse.md)
 - [Transaction](docs/Model/Transaction.md)
